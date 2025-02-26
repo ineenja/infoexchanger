@@ -6,6 +6,8 @@
 #pragma pack(push, 1)
 typedef struct
 {
+    uint32_t sizeBytes;
+
 
 }   WavHeader;
 #pragma pack(pop)
@@ -13,6 +15,7 @@ typedef struct
 class Msg
 {
     Msg(){
+        WavHeader MyWavHeader;
 
     }
 

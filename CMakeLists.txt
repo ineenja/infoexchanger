@@ -31,6 +31,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC mylist)
 add_subdirectory(${PROJECT_SOURCE_DIR}/common/msg)
 target_link_libraries(${PROJECT_NAME} PUBLIC msg)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/common/processing)
+target_link_libraries(${PROJECT_NAME} PUBLIC processing)
+
 
 
 
