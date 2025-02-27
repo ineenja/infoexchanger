@@ -1,10 +1,9 @@
 #include <gtest/gtest.h>
 #include <msg/msg.h>
 
-uint32_t Message::idCounter = 0;
+
 
 TEST(MessageTests, MessageHeaderCheck) {
-    Message::idCounter = 0;
 
     std::vector<uint8_t> testData1 = {1,2,3,4,5};
     Message testMsg1(testData1, 1);
@@ -16,7 +15,6 @@ TEST(MessageTests, MessageHeaderCheck) {
 }
 
 TEST(MessageTests, MessageHeaderCheck2Messages) {
-    Message::idCounter = 0;
 
     std::vector<uint8_t> testData1 = {1,2,3,4,5};
     Message testMsg1(testData1, 1);

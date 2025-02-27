@@ -1,7 +1,7 @@
 #ifndef DATASOURCE
 #define DATASOURCE
 
-#include "msg/msg.h"
+#include "msg.h"
 
 class DataSource {
     public:

@@ -1,19 +1,19 @@
 #ifndef MSG
 #define MSG
 
-#include "processing/processing.h"
+#include <processing/processing.h>
 
 class Message
 {
 public:
-    static uint32_t idCounter;
 
-    explicit Message(const std::vector<uint8_t>& data, const uint8_t type){
-        messageID = ++idCounter;
+    template <typename T>
+    explicit Message(const T& data, const uint8_t type){
+        // messageID = ++idCounter;
         messageType = type;
         payloadSize = data.size();
 
-        payload = divideDataIntoBytes();
+        payload = divideDataIntoBytes(data);
         payloadHash = getDataHash(payload);
     }
 
@@ -34,6 +34,8 @@ public:
     }
 
 private:
+    static uint32_t idCounter;
+
 #pragma pack(push, 1)
     uint32_t messageID;
     uint32_t messageType;

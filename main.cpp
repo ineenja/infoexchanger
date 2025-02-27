@@ -1,12 +1,11 @@
+#include "common/msg/include/msg/msg.h"
+#include "common/mylist/include/mylist/mylist.h"
 
-#include <mylist/mylist.h>
-#include <msg/msg.h>
-#include "datasource/datasource.h"
-
-uint32_t Message::idCounter = 0;
 
 int main()
 {
+    std::vector<uint8_t> testData1 = {1,2,3,4,5};
+    Message testMsg1(testData1, 1);
 
     return 0;
 }

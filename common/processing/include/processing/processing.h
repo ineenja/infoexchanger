@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <vector>
-#include <any>
+#include <iostream>
 
 inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
     // в планах использовать для хеширования CRC методику, с полиномом CRC-8-CCITT:
@@ -13,6 +13,7 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
     // ...но пока использую банальную контрольную сумму
     for (size_t i = 0; i < data.size(); ++i) {
         hash += data[i];
+        std::cout << static_cast<char>(data[i]) << " ";
     }
 
     return hash;
@@ -20,9 +21,15 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
 
 template <typename T>
 std::vector<uint8_t> divideDataIntoBytes(const T& data) {
+    std::vector<uint8_t> bytesOfData;
+    bytesOfData.resize(sizeof(data));
 
+    const char* byte = reinterpret_cast<const char*>(&data);
+    for (size_t i = 0; i < sizeof(data); ++i) {
+        bytesOfData.push_back(*byte++);
+    }
+    return bytesOfData;
 }
-
 
 
 #endif
