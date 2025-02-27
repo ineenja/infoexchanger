@@ -1,0 +1,327 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "googletests",
+					"childIndexes" : 
+					[
+						2
+					],
+					"jsonFile" : "directory-googletests-Debug-4f83269de314eaab97fa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "googletests"
+				},
+				{
+					"build" : "googletests/gtest",
+					"jsonFile" : "directory-googletests.gtest-Debug-76592a4968c4e03a0628.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "googletests/gtest",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "common/mylist",
+					"jsonFile" : "directory-common.mylist-Debug-9f4f2043adf0261fba5c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "common/mylist",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "common/msg",
+					"jsonFile" : "directory-common.msg-Debug-386e308610cdd5bc81dc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "common/msg",
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7
+					]
+				},
+				{
+					"build" : "common/processing",
+					"jsonFile" : "directory-common.processing-Debug-0bf6d0dd64081af14ef0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 5,
+					"source" : "common/processing",
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "datasource",
+					"jsonFile" : "directory-datasource-Debug-73b4d1fea307361ca637.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 6,
+					"source" : "datasource",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "infoexchangerproject",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "unittest",
+					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gtest",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "mylist",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "msg",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "processing",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "datasource",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 6,
+					"id" : "datasource::@cd6f0eaedae6797a6a9c",
+					"jsonFile" : "target-datasource-Debug-13ff0466ef9ea0ede631.json",
+					"name" : "datasource",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "datasource_t::@cd6f0eaedae6797a6a9c",
+					"jsonFile" : "target-datasource_t-Debug-17d9b82f80995ae1ca18.json",
+					"name" : "datasource_t",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "datasource_tconf::@cd6f0eaedae6797a6a9c",
+					"jsonFile" : "target-datasource_tconf-Debug-8784877da8f04c9564c2.json",
+					"name" : "datasource_tconf",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest::@9a0cee8afed2a44c6706",
+					"jsonFile" : "target-gtest-Debug-9f77138834b9023fb5f6.json",
+					"name" : "gtest",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "infoexchangerproject::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-infoexchangerproject-Debug-7d7570b767ca037476e3.json",
+					"name" : "infoexchangerproject",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "msg::@0a87d6f3b5bdbe21879c",
+					"jsonFile" : "target-msg-Debug-e52c6e87d3290a7777f8.json",
+					"name" : "msg",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "msg_t::@0a87d6f3b5bdbe21879c",
+					"jsonFile" : "target-msg_t-Debug-9ba65f48036bde717378.json",
+					"name" : "msg_t",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "msg_tconf::@0a87d6f3b5bdbe21879c",
+					"jsonFile" : "target-msg_tconf-Debug-150fb725a248229e1627.json",
+					"name" : "msg_tconf",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mylist::@a958939555f4b85ba85d",
+					"jsonFile" : "target-mylist-Debug-5f3d81e09e4abba88f9c.json",
+					"name" : "mylist",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "processing::@6dee88bf54cc123f75a0",
+					"jsonFile" : "target-processing-Debug-97c9dc89cfae610a4c18.json",
+					"name" : "processing",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "processing_t::@6dee88bf54cc123f75a0",
+					"jsonFile" : "target-processing_t-Debug-cfc1182a6c0a8a757f56.json",
+					"name" : "processing_t",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "processing_tconf::@6dee88bf54cc123f75a0",
+					"jsonFile" : "target-processing_tconf-Debug-9c1fc2107e48db19c252.json",
+					"name" : "processing_tconf",
+					"projectIndex" : 5
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger",
+		"source" : "/home/andreytas/work/development/projects/infoexchanger"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -1,0 +1,50 @@
+/home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/andreytas/work/clion/clion-2024.3/bin/ninja/linux/x64/ninja -G Ninja -S /home/andreytas/work/development/projects/infoexchanger -B /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger
+CMake Deprecation Warning at googletests/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at googletests/gtest/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at common/msg/unittest.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+Call Stack (most recent call first):
+  common/msg/CMakeLists.txt:21 (include)
+
+
+CMake Deprecation Warning at common/processing/unittest.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+Call Stack (most recent call first):
+  common/processing/CMakeLists.txt:19 (include)
+
+
+CMake Deprecation Warning at datasource/unittest.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+Call Stack (most recent call first):
+  datasource/CMakeLists.txt:19 (include)
+
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger

@@ -1,0 +1,58 @@
+{
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include"
+		],
+		"files" : 
+		[
+			"common/msg/test/config/conf.cmake",
+			"common/msg/unittest.cmake",
+			"common/msg/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 2,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 2
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 4
+			}
+		]
+	},
+	"id" : "msg_tconf::@0a87d6f3b5bdbe21879c",
+	"name" : "msg_tconf",
+	"paths" : 
+	{
+		"build" : "common/msg",
+		"source" : "common/msg"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

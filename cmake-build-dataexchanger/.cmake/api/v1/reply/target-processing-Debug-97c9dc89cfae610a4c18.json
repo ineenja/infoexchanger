@@ -1,0 +1,153 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "infoexchangerproject/binaries/lib/libprocessing.so"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"common/processing/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu++14 -fPIC -fdiagnostics-color=always"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "processing_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/processing"
+				},
+				{
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/lib"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include/processing"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"id" : "processing::@6dee88bf54cc123f75a0",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "processing",
+	"nameOnDisk" : "libprocessing.so",
+	"paths" : 
+	{
+		"build" : "common/processing",
+		"source" : "common/processing"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "common/processing/include/processing/processing.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "common/processing/src/processing.cpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}
