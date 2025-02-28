@@ -61,7 +61,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -fPIC -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu++17 -fPIC -fdiagnostics-color=always"
 				}
 			],
 			"defines" : 
@@ -106,7 +106,7 @@
 				[
 					1
 				],
-				"standard" : "14"
+				"standard" : "17"
 			},
 			"sourceIndexes" : 
 			[

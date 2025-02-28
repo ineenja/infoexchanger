@@ -33,6 +33,10 @@ public:
         return(payloadHash);
     }
 
+    [[nodiscard]] std::vector<uint8_t> getPayload() const {
+        return(payload);
+    }
+
 private:
     static uint32_t idCounter;
 
