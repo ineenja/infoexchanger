@@ -13,8 +13,9 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
     // ...но пока использую банальную контрольную сумму
     for (size_t i = 0; i < data.size(); ++i) {
         hash += data[i];
-        std::cout << static_cast<char>(data[i]) << " ";
+        std::cout << data[i] << " ";
     }
+    std::cout << std::endl;
 
     return hash;
 }
@@ -24,12 +25,14 @@ std::vector<uint8_t> divideDataIntoBytes(const T& data) {
     std::vector<uint8_t> bytesOfData;
     bytesOfData.resize(sizeof(data));
 
-    const char* byte = reinterpret_cast<const char*>(&data);
+    auto* byte = reinterpret_cast<const uint8_t*>(&data);
     for (size_t i = 0; i < sizeof(data); ++i) {
-        bytesOfData.push_back(*byte++);
+        bytesOfData[i] = *byte++;
     }
     return bytesOfData;
 }
+
+
 
 
 #endif

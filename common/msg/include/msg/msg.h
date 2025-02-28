@@ -9,9 +9,9 @@ public:
 
     template <typename T>
     explicit Message(const T& data, const uint8_t type){
-        // messageID = ++idCounter;
+        messageID = ++idCounter;
         messageType = type;
-        payloadSize = data.size();
+        payloadSize = sizeof(data);
 
         payload = divideDataIntoBytes(data);
         payloadHash = getDataHash(payload);
