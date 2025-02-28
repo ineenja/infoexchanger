@@ -14,43 +14,34 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
 
     // ...но пока использую банальную контрольную сумму
     for (size_t i = 0; i < data.size(); ++i) {
-        hash += data[i];
+        hash += static_cast<uint32_t>(data[i]);
     }
-    std::cout << std::endl;
-
     return hash;
 }
 
 template <typename T>
-std::vector<uint8_t> divideDataIntoBytes(const T& data) {
+std::vector<uint8_t> divideDataIntoBytes(const T& data, uint32_t type) {
     std::vector<uint8_t> bytesOfData;
     bytesOfData.resize(sizeof(data));
+    memcpy(bytesOfData.data(), &data, sizeof(data));
 
-    auto* byte = reinterpret_cast<const uint8_t*>(&data);
-    for (size_t i = 0; i < sizeof(data); ++i) {
-        bytesOfData[i] = *byte++;
+    if constexpr (std::is_invocable_v<decltype(&T::data), T>) {
+        std::cout << "i have some data within" << std::endl;
+        // std::vector<uint8_t> ContainerData;
+        // memcpy(ContainerData.data(), data.data(), data.size());
+        // bytesOfData.insert(bytesOfData.end(), ContainerData.begin(), ContainerData.end());
     }
 
     return bytesOfData;
 }
 
-//     double getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
-//     uint8_t data[bytes.size()];
-//     for (size_t i = 0; i < bytes.size(); ++i) {
-//         data[i] = bytes[i];
-//         std::cout << data[i] << " ";
-//     }
-//     std::cout << std::endl;
-//     double* doublePrt = reinterpret_cast<double*>(data);
-//
-//     return *doublePrt;
-// }
 
 std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
     uint8_t data[bytes.size()];
     for (size_t i = 0; i < bytes.size(); ++i) {
         data[i] = bytes[i];
     }
+    std::cout << std::endl;
     switch (type) {
         case 1:
             return *reinterpret_cast<std::vector<double>*>(data);
@@ -58,6 +49,8 @@ std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
             return *reinterpret_cast<double*>(data);
         case 3:
             return *reinterpret_cast<int*>(data);
+        case 4:
+            return *reinterpret_cast<std::string*>(data);
     }
 }
 

@@ -9,12 +9,12 @@ public:
 
     template <typename T>
     explicit Message(const T& data, const uint8_t type){
-        messageID = ++idCounter;
-        messageType = type;
-        payloadSize = sizeof(data);
+        messageID = ++idCounter; // инкремент счетчика сообщений
+        messageType = type; // определяем тип сообщения
+        payloadSize = sizeof(data); // определяем размер тела сообщения в байтах
 
-        payload = divideDataIntoBytes(data);
-        payloadHash = getDataHash(payload);
+        payload = divideDataIntoBytes(data, type); // переводим сообщение в последовательность байт
+        payloadHash = getDataHash(payload); // хешируем отправляемые байты
     }
 
     uint32_t getMessageID() const {
