@@ -11,30 +11,39 @@ public:
     explicit Message(const T& data, const uint32_t type){
         messageID = ++idCounter; // инкремент счетчика сообщений
         messageType = type; // определяем тип сообщения
-        payloadSize = sizeof(data); // определяем размер тела сообщения в байтах
+        /////////////////
+        /// на данный момент есть 5 реализованных вариантов сообщений
+        /// 1 - vector элементов типа double
+        /// 2 - vector элементов типа int
+        /// 3 - переменная типа double
+        /// 4 - переменная типа int
+        /// 5 - string
+        //////////////////
 
         payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
+
         payloadHash = getDataHash(payload); // хешируем отправляемые байты
+        payloadSize = payload.size();
     }
 
     [[nodiscard]] uint32_t getMessageID() const {
-        return(messageID);
+        return messageID;
     }
 
     [[nodiscard]] uint32_t getMessageType() const {
-        return(messageType);
+        return messageType;
     }
 
     [[nodiscard]] uint32_t getPayloadSize() const {
-        return(payloadSize);
+        return payloadSize;
     }
 
     [[nodiscard]] uint32_t getPayloadHash() const {
-        return(payloadHash);
+        return payloadHash;
     }
 
     [[nodiscard]] std::vector<uint8_t> getPayload() const {
-        return(payload);
+        return payload;
     }
 
 private:

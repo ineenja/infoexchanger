@@ -13,10 +13,11 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
     uint32_t hash = 0;
 
     // ...но пока использую банальную контрольную сумму
-    for (size_t i = 0; i < data.size(); ++i) {
+    for (const int i : data) {
         hash += static_cast<uint32_t>(data[i]);
     }
     return hash;
+
 }
 
 template <typename T>
@@ -55,7 +56,7 @@ std::vector<uint8_t> divideDataIntoBytes(const T& data) {
 }
 
 
-std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
+inline std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
     uint8_t data[bytes.size()];
     for (size_t i = 0; i < bytes.size(); ++i) {
         data[i] = bytes[i];
@@ -93,10 +94,11 @@ std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
             std::string recoveredString;
             recoveredString.resize(bytes.size());
             for (size_t i = 0; i < bytes.size(); ++i) {
-                recoveredString[i] = data[i];
+                recoveredString[i] = static_cast<char>(data[i]);
             }
             return recoveredString;
         }
+        default: return 0;
     }
 }
 
