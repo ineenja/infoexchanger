@@ -50,6 +50,7 @@ TEST(MessageTests, MessageHeaderCheckString) {
     EXPECT_EQ(testMsg1.getPayloadSize(), 32);
 }
 
+
 ///// TODO:
 /// тесты функции хеширования
 ///

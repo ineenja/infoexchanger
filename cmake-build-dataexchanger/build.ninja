@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_infoexchangerproject: phony || cmake_obj
 
 build CMakeFiles/infoexchangerproject.dir/main.cpp.o: CXX_COMPILER__infoexchangerproject_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/main.cpp || cmake_object_order_depends_target_infoexchangerproject
   DEP_FILE = CMakeFiles/infoexchangerproject.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/common/mylist -I/home/andreytas/work/development/projects/infoexchanger/common/mylist/include -I/home/andreytas/work/development/projects/infoexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include -I/home/andreytas/work/development/projects/infoexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource/include
   OBJECT_DIR = CMakeFiles/infoexchangerproject.dir
   OBJECT_FILE_DIR = CMakeFiles/infoexchangerproject.dir
@@ -248,7 +248,7 @@ build cmake_object_order_depends_target_mylist: phony || .
 build common/mylist/CMakeFiles/mylist.dir/src/mylist.cpp.o: CXX_COMPILER__mylist_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/mylist/src/mylist.cpp || cmake_object_order_depends_target_mylist
   DEFINES = -Dmylist_EXPORTS
   DEP_FILE = common/mylist/CMakeFiles/mylist.dir/src/mylist.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fPIC -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fPIC -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/mylist -I/home/andreytas/work/development/projects/infoexchanger/common/mylist -I/home/andreytas/work/development/projects/infoexchanger/common/mylist/include -I/home/andreytas/work/development/projects/infoexchanger/common/mylist/lib -I/home/andreytas/work/development/projects/infoexchanger/common/mylist/include/mylist
   OBJECT_DIR = common/mylist/CMakeFiles/mylist.dir
   OBJECT_FILE_DIR = common/mylist/CMakeFiles/mylist.dir/src
@@ -323,7 +323,7 @@ build cmake_object_order_depends_target_msg: phony || cmake_object_order_depends
 build common/msg/CMakeFiles/msg.dir/src/msg.cpp.o: CXX_COMPILER__msg_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/msg/src/msg.cpp || cmake_object_order_depends_target_msg
   DEFINES = -Dmsg_EXPORTS
   DEP_FILE = common/msg/CMakeFiles/msg.dir/src/msg.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fPIC -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fPIC -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include -I/home/andreytas/work/development/projects/infoexchanger/common/msg/lib -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include/msg -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include
   OBJECT_DIR = common/msg/CMakeFiles/msg.dir
   OBJECT_FILE_DIR = common/msg/CMakeFiles/msg.dir/src
@@ -358,14 +358,14 @@ build cmake_object_order_depends_target_msg_t: phony || cmake_object_order_depen
 
 build common/msg/CMakeFiles/msg_t.dir/test/main.cpp.o: CXX_COMPILER__msg_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/msg/test/main.cpp || cmake_object_order_depends_target_msg_t
   DEP_FILE = common/msg/CMakeFiles/msg_t.dir/test/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include
   OBJECT_DIR = common/msg/CMakeFiles/msg_t.dir
   OBJECT_FILE_DIR = common/msg/CMakeFiles/msg_t.dir/test
 
 build common/msg/CMakeFiles/msg_t.dir/test/msg_test.cpp.o: CXX_COMPILER__msg_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/msg/test/msg_test.cpp || cmake_object_order_depends_target_msg_t
   DEP_FILE = common/msg/CMakeFiles/msg_t.dir/test/msg_test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include
   OBJECT_DIR = common/msg/CMakeFiles/msg_t.dir
   OBJECT_FILE_DIR = common/msg/CMakeFiles/msg_t.dir/test
@@ -446,7 +446,7 @@ build cmake_object_order_depends_target_processing: phony || .
 build common/processing/CMakeFiles/processing.dir/src/processing.cpp.o: CXX_COMPILER__processing_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/processing/src/processing.cpp || cmake_object_order_depends_target_processing
   DEFINES = -Dprocessing_EXPORTS
   DEP_FILE = common/processing/CMakeFiles/processing.dir/src/processing.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fPIC -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fPIC -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing/lib -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include/processing
   OBJECT_DIR = common/processing/CMakeFiles/processing.dir
   OBJECT_FILE_DIR = common/processing/CMakeFiles/processing.dir/src
@@ -480,14 +480,14 @@ build cmake_object_order_depends_target_processing_t: phony || cmake_object_orde
 
 build common/processing/CMakeFiles/processing_t.dir/test/main.cpp.o: CXX_COMPILER__processing_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/processing/test/main.cpp || cmake_object_order_depends_target_processing_t
   DEP_FILE = common/processing/CMakeFiles/processing_t.dir/test/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include
   OBJECT_DIR = common/processing/CMakeFiles/processing_t.dir
   OBJECT_FILE_DIR = common/processing/CMakeFiles/processing_t.dir/test
 
 build common/processing/CMakeFiles/processing_t.dir/test/processing_test.cpp.o: CXX_COMPILER__processing_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/common/processing/test/processing_test.cpp || cmake_object_order_depends_target_processing_t
   DEP_FILE = common/processing/CMakeFiles/processing_t.dir/test/processing_test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include
   OBJECT_DIR = common/processing/CMakeFiles/processing_t.dir
   OBJECT_FILE_DIR = common/processing/CMakeFiles/processing_t.dir/test
@@ -568,7 +568,7 @@ build cmake_object_order_depends_target_datasource: phony || .
 build datasource/CMakeFiles/datasource.dir/src/datasource.cpp.o: CXX_COMPILER__datasource_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/datasource/src/datasource.cpp || cmake_object_order_depends_target_datasource
   DEFINES = -Ddatasource_EXPORTS
   DEP_FILE = datasource/CMakeFiles/datasource.dir/src/datasource.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fPIC -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fPIC -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource/include -I/home/andreytas/work/development/projects/infoexchanger/datasource/lib -I/home/andreytas/work/development/projects/infoexchanger/datasource/include/datasource
   OBJECT_DIR = datasource/CMakeFiles/datasource.dir
   OBJECT_FILE_DIR = datasource/CMakeFiles/datasource.dir/src
@@ -602,14 +602,14 @@ build cmake_object_order_depends_target_datasource_t: phony || cmake_object_orde
 
 build datasource/CMakeFiles/datasource_t.dir/test/datasource_test.cpp.o: CXX_COMPILER__datasource_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/datasource/test/datasource_test.cpp || cmake_object_order_depends_target_datasource_t
   DEP_FILE = datasource/CMakeFiles/datasource_t.dir/test/datasource_test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/datasource/include
   OBJECT_DIR = datasource/CMakeFiles/datasource_t.dir
   OBJECT_FILE_DIR = datasource/CMakeFiles/datasource_t.dir/test
 
 build datasource/CMakeFiles/datasource_t.dir/test/main.cpp.o: CXX_COMPILER__datasource_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/datasource/test/main.cpp || cmake_object_order_depends_target_datasource_t
   DEP_FILE = datasource/CMakeFiles/datasource_t.dir/test/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/datasource/include
   OBJECT_DIR = datasource/CMakeFiles/datasource_t.dir
   OBJECT_FILE_DIR = datasource/CMakeFiles/datasource_t.dir/test

@@ -8,9 +8,7 @@ class DataSource {
     DataSource();
 
     Message newMsg(const void* data, uint32_t msgType) {
-        Message msg;
-        msg.payload.resize(msgType);
-
+        Message msg(data, msgType);
         return msg;
     }
 

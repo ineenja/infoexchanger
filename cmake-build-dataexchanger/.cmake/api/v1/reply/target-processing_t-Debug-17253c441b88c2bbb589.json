@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "datasource/datasource_t"
+			"path" : "common/processing/processing_t"
 		}
 	],
 	"backtrace" : 3,
@@ -17,9 +17,9 @@
 		],
 		"files" : 
 		[
-			"datasource/unittest.cmake",
-			"datasource/CMakeLists.txt",
-			"datasource/test/config/conf.cmake"
+			"common/processing/unittest.cmake",
+			"common/processing/CMakeLists.txt",
+			"common/processing/test/config/conf.cmake"
 		],
 		"nodes" : 
 		[
@@ -72,16 +72,16 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++17 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu++20 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource"
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/processing"
 				},
 				{
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource"
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
 				},
 				{
 					"backtrace" : 4,
@@ -93,7 +93,7 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
 				}
 			],
 			"language" : "CXX",
@@ -103,7 +103,7 @@
 				[
 					3
 				],
-				"standard" : "17"
+				"standard" : "20"
 			},
 			"sourceIndexes" : 
 			[
@@ -120,14 +120,14 @@
 		},
 		{
 			"backtrace" : 4,
-			"id" : "datasource::@cd6f0eaedae6797a6a9c"
+			"id" : "processing::@6dee88bf54cc123f75a0"
 		},
 		{
 			"backtrace" : 7,
-			"id" : "datasource_tconf::@cd6f0eaedae6797a6a9c"
+			"id" : "processing_tconf::@6dee88bf54cc123f75a0"
 		}
 	],
-	"id" : "datasource_t::@cd6f0eaedae6797a6a9c",
+	"id" : "processing_t::@6dee88bf54cc123f75a0",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -151,18 +151,18 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "infoexchangerproject/binaries/lib/libdatasource.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "datasource_t",
-	"nameOnDisk" : "datasource_t",
+	"name" : "processing_t",
+	"nameOnDisk" : "processing_t",
 	"paths" : 
 	{
-		"build" : "datasource",
-		"source" : "datasource"
+		"build" : "common/processing",
+		"source" : "common/processing"
 	},
 	"sourceGroups" : 
 	[
@@ -180,13 +180,13 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "datasource/test/datasource_test.cpp",
+			"path" : "common/processing/test/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "datasource/test/main.cpp",
+			"path" : "common/processing/test/processing_test.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

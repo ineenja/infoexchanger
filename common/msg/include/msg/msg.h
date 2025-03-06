@@ -8,28 +8,28 @@ class Message
 public:
 
     template <typename T>
-    explicit Message(const T& data, const uint8_t type){
+    explicit Message(const T& data, const uint32_t type){
         messageID = ++idCounter; // инкремент счетчика сообщений
         messageType = type; // определяем тип сообщения
         payloadSize = sizeof(data); // определяем размер тела сообщения в байтах
 
-        payload = divideDataIntoBytes(data, type); // переводим сообщение в последовательность байт
+        payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
         payloadHash = getDataHash(payload); // хешируем отправляемые байты
     }
 
-    uint32_t getMessageID() const {
+    [[nodiscard]] uint32_t getMessageID() const {
         return(messageID);
     }
 
-    uint32_t getMessageType() const {
+    [[nodiscard]] uint32_t getMessageType() const {
         return(messageType);
     }
 
-    uint32_t getPayloadSize() const {
+    [[nodiscard]] uint32_t getPayloadSize() const {
         return(payloadSize);
     }
 
-    uint32_t getPayloadHash() const {
+    [[nodiscard]] uint32_t getPayloadHash() const {
         return(payloadHash);
     }
 
