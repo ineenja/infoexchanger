@@ -27,18 +27,11 @@ concept HasDataMethod = requires(T obj) {
 template <typename T>
 std::vector<uint8_t> divideDataIntoBytes(const T& data) {
     std::vector<uint8_t> bytesOfData;
-    bytesOfData.resize(sizeof(data));
-    memcpy(bytesOfData.data(), &data, sizeof(data));
-
-    std::cout << "size of data is " << bytesOfData.size() << std::endl;
 
     if constexpr (HasDataMethod<T>) {
 
-        std::cout << "there is some data within!" << std::endl;
         // Получаем указатель на данные контейнера
         auto* dataPointer = data.data();
-
-        std::vector<uint8_t> bytesOfDataInData;
 
         // Проверяем, что контейнер не пустой
         if (data.size() > 0) {
@@ -46,26 +39,18 @@ std::vector<uint8_t> divideDataIntoBytes(const T& data) {
             size_t dataSize = data.size() * sizeof(typename T::value_type);
 
             // Подготавливаем вектор для копирования данных
-            bytesOfDataInData.resize(dataSize);
+            bytesOfData.resize(dataSize);
 
             // Копируем данные с помощью memcpy
-            std::memcpy(bytesOfDataInData.data(), dataPointer, dataSize);
+            std::memcpy(bytesOfData.data(), dataPointer, dataSize);
 
-            std::cout << "inner data size is " << bytesOfDataInData.size() << std::endl;
-
-            bytesOfData.insert(bytesOfData.end(), bytesOfDataInData.begin(), bytesOfDataInData.end());
-
-            std::cout << "whole data size is " << bytesOfData.size() << std::endl << std::endl;
         } else {
-            std::cout << "Container is empty, nothing to copy." << std::endl;
         }
     } else {
-        std::cout << "Object has no data() method." << std::endl;
+        bytesOfData.resize(sizeof(data));
+        memcpy(bytesOfData.data(), &data, sizeof(data));
     }
 
-    // было бы полезно сделать проверку на то, что передается в качестве data.
-    // если это, например, контейнер vector, то вызовется его метод data(),
-    // и в вектор байт бы скопировались данные на которые указывает вектор.
     return bytesOfData;
 }
 
@@ -76,14 +61,42 @@ std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
         data[i] = bytes[i];
     }
     switch (type) {
-        case 1:
-            return *reinterpret_cast<std::vector<double>*>(data);
-        case 2:
-            return *reinterpret_cast<double*>(data);
+        case 1: {
+            std::vector<double> recoveredVector(bytes.size(), 0.0);
+            unsigned int recoveredSize = bytes.size() / sizeof(double);
+            for (size_t i = 0; i < recoveredSize; ++i) {
+                uint8_t tempValue[sizeof(double)] = {0};
+                for (size_t j = 0; j < sizeof(double); ++j) {
+                    tempValue[j] = data[sizeof(double) * i + j];
+                }
+                recoveredVector[i] = *reinterpret_cast<double*>(tempValue);
+            }
+            return recoveredVector;
+        }
+        case 2: {
+            std::vector<int> recoveredVector(bytes.size(), 0);
+            unsigned int recoveredSize = bytes.size() / sizeof(int);
+            for (size_t i = 0; i < recoveredSize; ++i) {
+                uint8_t tempValue[sizeof(int)] = {0};
+                for (size_t j = 0; j < sizeof(int); ++j) {
+                    tempValue[j] = data[sizeof(int) * i + j];
+                }
+                recoveredVector[i] = *reinterpret_cast<int*>(tempValue);
+            }
+            return recoveredVector;
+        }
         case 3:
-            return *reinterpret_cast<int*>(data);
+            {return *reinterpret_cast<double*>(data);}
         case 4:
-            return *reinterpret_cast<std::string*>(data);
+            {return *reinterpret_cast<int*>(data);}
+        case 5:{
+            std::string recoveredString;
+            recoveredString.resize(bytes.size());
+            for (size_t i = 0; i < bytes.size(); ++i) {
+                recoveredString[i] = data[i];
+            }
+            return recoveredString;
+        }
     }
 }
 
