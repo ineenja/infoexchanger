@@ -19,6 +19,7 @@
 		[
 			"datasource/unittest.cmake",
 			"datasource/CMakeLists.txt",
+			"common/msg/CMakeLists.txt",
 			"datasource/test/config/conf.cmake"
 		],
 		"nodes" : 
@@ -29,7 +30,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 19,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -49,20 +50,35 @@
 				"parent" : 2
 			},
 			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 15,
+				"parent" : 6
+			},
+			{
 				"command" : 1,
 				"file" : 0,
 				"line" : 18,
 				"parent" : 2
 			},
 			{
-				"file" : 2,
-				"parent" : 5
+				"file" : 3,
+				"parent" : 8
 			},
 			{
 				"command" : 3,
-				"file" : 2,
+				"file" : 3,
 				"line" : 8,
-				"parent" : 6
+				"parent" : 9
 			}
 		]
 	},
@@ -94,6 +110,22 @@
 				{
 					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
 				}
 			],
 			"language" : "CXX",
@@ -120,10 +152,18 @@
 		},
 		{
 			"backtrace" : 4,
+			"id" : "msg::@0a87d6f3b5bdbe21879c"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "processing::@6dee88bf54cc123f75a0"
+		},
+		{
+			"backtrace" : 4,
 			"id" : "datasource::@cd6f0eaedae6797a6a9c"
 		},
 		{
-			"backtrace" : 7,
+			"backtrace" : 10,
 			"id" : "datasource_tconf::@cd6f0eaedae6797a6a9c"
 		}
 	],
@@ -152,6 +192,16 @@
 			{
 				"backtrace" : 4,
 				"fragment" : "infoexchangerproject/binaries/lib/libdatasource.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
 				"role" : "libraries"
 			}
 		],

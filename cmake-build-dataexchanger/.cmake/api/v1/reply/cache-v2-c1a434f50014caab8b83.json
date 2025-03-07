@@ -1178,6 +1178,18 @@
 			"value" : "OFF"
 		},
 		{
+			"name" : "datasource_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;msg;"
+		},
+		{
 			"name" : "datasource_SOURCE_DIR",
 			"properties" : 
 			[

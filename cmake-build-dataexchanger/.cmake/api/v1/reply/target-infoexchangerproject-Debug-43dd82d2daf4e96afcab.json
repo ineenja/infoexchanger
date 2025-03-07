@@ -37,6 +37,12 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
 				"line" : 32,
 				"parent" : 0
 			},
@@ -44,12 +50,6 @@
 				"command" : 1,
 				"file" : 0,
 				"line" : 35,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 38,
 				"parent" : 0
 			}
 		]
@@ -74,27 +74,27 @@
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/mylist/include"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 3,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 3,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
 				}
 			],
@@ -120,15 +120,15 @@
 			"id" : "mylist::@a958939555f4b85ba85d"
 		},
 		{
-			"backtrace" : 3,
+			"backtrace" : 4,
 			"id" : "msg::@0a87d6f3b5bdbe21879c"
 		},
 		{
-			"backtrace" : 3,
+			"backtrace" : 4,
 			"id" : "processing::@6dee88bf54cc123f75a0"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 3,
 			"id" : "datasource::@cd6f0eaedae6797a6a9c"
 		}
 	],
@@ -156,17 +156,17 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libdatasource.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "infoexchangerproject/binaries/lib/libdatasource.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
 				"role" : "libraries"
 			}
 		],

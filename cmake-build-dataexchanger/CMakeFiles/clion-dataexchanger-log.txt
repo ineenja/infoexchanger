@@ -42,7 +42,7 @@ CMake Deprecation Warning at datasource/unittest.cmake:1 (cmake_minimum_required
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  datasource/CMakeLists.txt:19 (include)
+  datasource/CMakeLists.txt:21 (include)
 
 
 -- Configuring done (0.0s)

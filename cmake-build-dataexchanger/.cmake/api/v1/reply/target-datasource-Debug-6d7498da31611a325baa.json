@@ -11,11 +11,13 @@
 		"commands" : 
 		[
 			"add_library",
+			"target_link_libraries",
 			"target_include_directories"
 		],
 		"files" : 
 		[
-			"datasource/CMakeLists.txt"
+			"datasource/CMakeLists.txt",
+			"common/msg/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -35,15 +37,30 @@
 				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 16,
-				"parent" : 0
+				"file" : 1
 			},
 			{
 				"command" : 1,
+				"file" : 1,
+				"line" : 15,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
 				"file" : 0,
 				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -72,16 +89,32 @@
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 5,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 6,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/lib"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 7,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include/datasource"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
 				}
 			],
 			"language" : "CXX",
@@ -99,6 +132,17 @@
 			]
 		}
 	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "msg::@0a87d6f3b5bdbe21879c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "processing::@6dee88bf54cc123f75a0"
+		}
+	],
 	"id" : "datasource::@cd6f0eaedae6797a6a9c",
 	"link" : 
 	{
@@ -107,6 +151,20 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/infoexchangerproject/binaries/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"

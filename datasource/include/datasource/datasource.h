@@ -2,18 +2,29 @@
 #define DATASOURCE
 
 #include "msg/msg.h"
+#include <chrono>
+#include <thread>
 
-class DataSource {
+class MessageGenerator {
     public:
-    DataSource();
+    MessageGenerator(std::chrono::milliseconds interval, std::vector<Message>* messageQueuePointer)
+        : interval_(interval), lastCreationTime_(std::chrono::steady_clock::now()), messagesQueuePointer(messageQueuePointer) {};
 
-    
-    Message static newMsg(const void* data, uint32_t msgType) {
-        Message msg(data, msgType);
-        return msg;
+    template <typename T>
+    void newMsg(const T& data, uint8_t msgType) {
+        if (std::chrono::steady_clock::now() - lastCreationTime_ >= interval_) {
+            std::cout << "msg created" << std::endl;
+            lastCreationTime_ = std::chrono::steady_clock::now();
+            Message msg(data, msgType);
+            messagesQueuePointer->push_back(msg);
+        }
     }
 
     private:
+    std::chrono::milliseconds interval_;
+    std::chrono::steady_clock::time_point lastCreationTime_;
+
+    std::vector<Message>* messagesQueuePointer;
 
 };
 

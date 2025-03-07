@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
 #include <msg/msg.h>
 
-
-
 TEST(MessageTests, MessageHeaderCheckVector) {
 
     std::vector<double> testData1 = {1,2,3,4,5};
@@ -99,6 +97,27 @@ TEST(MessageTests, MessagePayloadCheckString) {
 
     auto checkData2 = any_cast<std::string>(getDataFromBytes(testMsg2.getPayload(), testMsg2.getMessageType()));
     EXPECT_EQ(testData2, checkData2);
+}
+
+TEST(MessageTests, CreatingAVectorOfSameMessages) {
+
+    std::vector<double> testData1 = {1,2,3,4,5};
+    std::vector<Message> Messages;
+
+    Message testMsg1(testData1, 1);
+    Message testMsg2(testData1, 1);
+
+    Messages.push_back(testMsg1);
+    Messages.push_back(testMsg2);
+
+    EXPECT_EQ(Messages.size(), 2);
+
+    auto checkData1 = any_cast<std::vector<double>>(getDataFromBytes(Messages[1].getPayload(), Messages[1].getMessageType()));
+
+    for (int i = 0; i < testData1.size(); i++) {
+        EXPECT_EQ(testData1[i], checkData1[i]);
+    }
+
 }
 
 ///// TODO:

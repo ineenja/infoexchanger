@@ -8,7 +8,7 @@ class Message
 public:
 
     template <typename T>
-    explicit Message(const T& data, const uint32_t type){
+    explicit Message(const T& data, const uint8_t type){
         messageID = ++idCounter; // инкремент счетчика сообщений
         messageType = type; // определяем тип сообщения
         /////////////////
@@ -30,7 +30,7 @@ public:
         return messageID;
     }
 
-    [[nodiscard]] uint32_t getMessageType() const {
+    [[nodiscard]] uint8_t getMessageType() const {
         return messageType;
     }
 
@@ -51,7 +51,7 @@ private:
 
 #pragma pack(push, 1)
     uint32_t messageID;
-    uint32_t messageType;
+    uint8_t messageType;
     uint32_t payloadSize;
     uint32_t payloadHash;
     std::vector<uint8_t> payload;

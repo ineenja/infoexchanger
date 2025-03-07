@@ -56,7 +56,7 @@ std::vector<uint8_t> divideDataIntoBytes(const T& data) {
 }
 
 
-inline std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
+inline std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint8_t type) {
     uint8_t data[bytes.size()];
     for (size_t i = 0; i < bytes.size(); ++i) {
         data[i] = bytes[i];
