@@ -65,3 +65,18 @@ TEST(ProcessingTests, getDataFromBytesCheckWithString) {
         EXPECT_EQ(testData1[i], checkData1[i]);
     }
 }
+
+TEST(ProcessingTests, getDataTypeCheck) {
+
+    std::vector<double> testData1 = {1,2,3};
+    std::vector<int> testData2 = {1,2,3};
+    double testData3 = 1337;
+    int testData4 = 1488;
+    std::string testData5 = "eric blaine";
+
+    EXPECT_EQ(getDataType(testData1), 1);
+    EXPECT_EQ(getDataType(testData2), 2);
+    EXPECT_EQ(getDataType(testData3), 3);
+    EXPECT_EQ(getDataType(testData4), 4);
+    EXPECT_EQ(getDataType(testData5), 5);
+}

@@ -102,6 +102,26 @@ inline std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint8_t type
     }
 }
 
+template <typename T>
+uint8_t getDataType(const T& data) {
+    uint8_t dataType = 0;
+    if constexpr (std::is_same_v<T, std::vector<double>>) {
+        dataType = 1;
+    }
+    if constexpr (std::is_same_v<T, std::vector<int>>) {
+        dataType = 2;
+    }
+    if constexpr (std::is_same_v<T, double>) {
+        dataType = 3;
+    }
+    if constexpr (std::is_same_v<T, int>) {
+        dataType = 4;
+    }
+    if constexpr (std::is_same_v<T, std::string>) {
+        dataType = 5;
+    }
 
+    return dataType;
+}
 
 #endif

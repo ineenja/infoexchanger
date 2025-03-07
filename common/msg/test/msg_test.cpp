@@ -4,7 +4,7 @@
 TEST(MessageTests, MessageHeaderCheckVector) {
 
     std::vector<double> testData1 = {1,2,3,4,5};
-    Message testMsg1(testData1, 1);
+    Message testMsg1(testData1);
 
     EXPECT_EQ(testMsg1.getMessageType(), 1);
     EXPECT_EQ(testMsg1.getMessageID(), 1);
@@ -14,14 +14,14 @@ TEST(MessageTests, MessageHeaderCheckVector) {
 TEST(MessageTests, MessageHeaderCheck2MessagesVector) {
 
     std::vector<double> testData1 = {1,2,3,4,5};
-    Message testMsg1(testData1, 1);
+    Message testMsg1(testData1);
 
     EXPECT_EQ(testMsg1.getMessageType(), 1);
     EXPECT_EQ(testMsg1.getMessageID(), 2);
     EXPECT_EQ(testMsg1.getPayloadSize(), testData1.size()  * sizeof(double));
 
     std::vector<int> testData2 = {6,7,8,9,10};
-    Message testMsg2(testData2, 2);
+    Message testMsg2(testData2);
 
     EXPECT_EQ(testMsg2.getMessageType(), 2);
     EXPECT_EQ(testMsg2.getMessageID(), 3);
@@ -31,7 +31,7 @@ TEST(MessageTests, MessageHeaderCheck2MessagesVector) {
 TEST(MessageTests, MessageHeaderCheckDouble) {
 
     double testData1 = 228;
-    Message testMsg1(testData1, 3);
+    Message testMsg1(testData1);
 
     EXPECT_EQ(testMsg1.getMessageType(), 3);
     EXPECT_EQ(testMsg1.getMessageID(), 4);
@@ -41,7 +41,7 @@ TEST(MessageTests, MessageHeaderCheckDouble) {
 TEST(MessageTests, MessageHeaderCheckString) {
 
     std::string testData1 = "2jbljkgyugh28";
-    Message testMsg1(testData1, 5);
+    Message testMsg1(testData1);
 
     EXPECT_EQ(testMsg1.getMessageType(), 5);
     EXPECT_EQ(testMsg1.getMessageID(), 5);
@@ -51,7 +51,7 @@ TEST(MessageTests, MessageHeaderCheckString) {
 TEST(MessageTests, MessagePayloadCheckVector) {
 
     std::vector<double> testData1 = {1,2,3,4,5};
-    Message testMsg1(testData1, 1);
+    Message testMsg1(testData1);
 
     auto checkData1 = any_cast<std::vector<double>>(getDataFromBytes(testMsg1.getPayload(), testMsg1.getMessageType()));
 
@@ -60,7 +60,7 @@ TEST(MessageTests, MessagePayloadCheckVector) {
     }
 
     std::vector<int> testData2 = {6,7,8,9,10};
-    Message testMsg2(testData2, 2);
+    Message testMsg2(testData2);
 
     auto checkData2 = any_cast<std::vector<int>>(getDataFromBytes(testMsg2.getPayload(), testMsg2.getMessageType()));
 
@@ -72,13 +72,13 @@ TEST(MessageTests, MessagePayloadCheckVector) {
 TEST(MessageTests, MessagePayloadCheckVariables) {
 
     double testData1 = 228.1337;
-    Message testMsg1(testData1, 3);
+    Message testMsg1(testData1);
 
     auto checkData1 = any_cast<double>(getDataFromBytes(testMsg1.getPayload(), testMsg1.getMessageType()));
     EXPECT_EQ(testData1, checkData1);
 
     int testData2 = 2281337;
-    Message testMsg2(testData2, 4);
+    Message testMsg2(testData2);
 
     auto checkData2 = any_cast<int>(getDataFromBytes(testMsg2.getPayload(), testMsg2.getMessageType()));
     EXPECT_EQ(testData2, checkData2);
@@ -87,13 +87,13 @@ TEST(MessageTests, MessagePayloadCheckVariables) {
 TEST(MessageTests, MessagePayloadCheckString) {
 
     std::string testData1 = "228.1337";
-    Message testMsg1(testData1, 5);
+    Message testMsg1(testData1);
 
     auto checkData1 = any_cast<std::string>(getDataFromBytes(testMsg1.getPayload(), testMsg1.getMessageType()));
     EXPECT_EQ(testData1, checkData1);
 
     std::string testData2 = "kto chitaet tot krasavchik";
-    Message testMsg2(testData2, 5);
+    Message testMsg2(testData2);
 
     auto checkData2 = any_cast<std::string>(getDataFromBytes(testMsg2.getPayload(), testMsg2.getMessageType()));
     EXPECT_EQ(testData2, checkData2);
@@ -104,8 +104,8 @@ TEST(MessageTests, CreatingAVectorOfSameMessages) {
     std::vector<double> testData1 = {1,2,3,4,5};
     std::vector<Message> Messages;
 
-    Message testMsg1(testData1, 1);
-    Message testMsg2(testData1, 1);
+    Message testMsg1(testData1);
+    Message testMsg2(testData1);
 
     Messages.push_back(testMsg1);
     Messages.push_back(testMsg2);
@@ -117,7 +117,31 @@ TEST(MessageTests, CreatingAVectorOfSameMessages) {
     for (int i = 0; i < testData1.size(); i++) {
         EXPECT_EQ(testData1[i], checkData1[i]);
     }
+}
 
+TEST(MessageTests, PassingAPointerToMessageConstructor) {
+
+    double testValue = 1337;
+    double* testPtr = &testValue;
+    Message testMsg(testValue);
+    Message testMsgPtr(testPtr);
+
+    auto checkValue = any_cast<double>(getDataFromBytes(testMsgPtr.getPayload(), testMsgPtr.getMessageType()));
+
+    EXPECT_EQ(testValue, checkValue);
+}
+
+TEST(MessageTests, PassingACastedVoidPointerToMessageConstructor) {
+
+    std::vector<double> testData1 = {1,2,3,4,5};
+    void* ptr = &testData1;
+    Message testMsg1(*static_cast<std::vector<double>*>(ptr));
+
+    auto checkData1 = any_cast<std::vector<double>>(getDataFromBytes(testMsg1.getPayload(), testMsg1.getMessageType()));
+
+    for (int i = 0; i < testData1.size(); i++) {
+        EXPECT_EQ(testData1[i], checkData1[i]);
+    }
 }
 
 ///// TODO:

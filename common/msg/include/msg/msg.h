@@ -8,9 +8,18 @@ class Message
 public:
 
     template <typename T>
-    explicit Message(const T& data, const uint8_t type){
+    explicit Message(const T& data){
         messageID = ++idCounter; // инкремент счетчика сообщений
-        messageType = type; // определяем тип сообщения
+
+        if constexpr (std::is_pointer_v<T>) {
+            std::cout << "calling a constructor for pointer" << std::endl;
+            messageType = getDataType(*data); // определяем тип сообщения
+            payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
+        } else {
+            std::cout << "calling a constructor for data" << std::endl;
+            messageType = getDataType(data); // определяем тип сообщения
+            payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
+        }
         /////////////////
         /// на данный момент есть 5 реализованных вариантов сообщений
         /// 1 - vector элементов типа double
@@ -20,8 +29,21 @@ public:
         /// 5 - string
         //////////////////
 
-        payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
+        payloadHash = getDataHash(payload); // хешируем отправляемые байты
+        payloadSize = payload.size();
+    }
 
+    template <typename T>
+    explicit Message(const T& data, uint8_t dataType){ // перегрузка функции с возможностью передать тип сообщения
+        if constexpr (std::is_pointer_v<T>) {
+            std::cout << "calling a constructor for pointer" << std::endl;
+            payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
+        } else {
+            std::cout << "calling a constructor for data" << std::endl;
+            payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
+        }
+        messageID = ++idCounter; // инкремент счетчика сообщений
+        messageType = dataType; // определяем тип сообщения
         payloadHash = getDataHash(payload); // хешируем отправляемые байты
         payloadSize = payload.size();
     }
