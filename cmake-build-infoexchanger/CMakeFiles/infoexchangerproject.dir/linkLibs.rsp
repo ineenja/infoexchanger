@@ -1,0 +1,1 @@
+ common/msgqueue/libmsgqueue.dll.a datasource/libdatasource.dll.a common/mylist/libmylist.dll.a common/msg/libmsg.dll.a common/processing/libprocessing.dll.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

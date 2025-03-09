@@ -11,7 +11,7 @@ class MessageGenerator {
         : interval_(interval), lastCreationTime_(std::chrono::steady_clock::now()), messagesQueuePointer(messageQueuePointer) {};
 
     template <typename T>
-    void newMsg(const T& data) { // функция генерации сообщений по одному в интервал времени
+    bool newMsg(const T& data) { // функция генерации сообщений по одному в интервал времени
         auto StartTime = std::chrono::steady_clock::now();
         if (std::chrono::steady_clock::now() - lastCreationTime_ >= interval_) { // проверяет, прошел ли интервал c момента последнего создания сообщения
             lastCreationTime_ = std::chrono::steady_clock::now(); // обновляем переменную хранящую время последнего создания сообщения
@@ -22,11 +22,14 @@ class MessageGenerator {
             auto diff = std::chrono::duration_cast<std::chrono::nanoseconds>(EndTime - StartTime);
             std::cout << diff.count() << " ns" << std::endl;
             timeToCreateAMessage.push_back(diff);
+            return true;
+        } else {
+            return false;
         }
     }
 
     template <typename T>
-    void newMsg(const T& data, uint8_t dataType) { // перегрузка функции создания нового сообщения с возможностью передавать тип сообщения
+    bool newMsg(const T& data, uint8_t dataType) { // перегрузка функции создания нового сообщения с возможностью передавать тип сообщения
         auto StartTime = std::chrono::steady_clock::now();
         if (std::chrono::steady_clock::now() - lastCreationTime_ >= interval_) { // проверяет, прошел ли интервал c момента последнего создания сообщения
             lastCreationTime_ = std::chrono::steady_clock::now(); // обновляем переменную хранящую время последнего создания сообщения
@@ -37,6 +40,9 @@ class MessageGenerator {
             auto diff = std::chrono::duration_cast<std::chrono::nanoseconds>(EndTime - StartTime);
             std::cout << diff.count() << " ns" << std::endl;
             timeToCreateAMessage.push_back(diff);
+            return true;
+        } else {
+            return false;
         }
     }
 

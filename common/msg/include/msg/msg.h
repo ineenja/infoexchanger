@@ -12,11 +12,9 @@ public:
         messageID = ++idCounter; // инкремент счетчика сообщений
 
         if constexpr (std::is_pointer_v<T>) {
-            std::cout << "calling a constructor for pointer" << std::endl;
             messageType = getDataType(*data); // определяем тип сообщения
             payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
         } else {
-            std::cout << "calling a constructor for data" << std::endl;
             messageType = getDataType(data); // определяем тип сообщения
             payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
         }
@@ -36,14 +34,38 @@ public:
     template <typename T>
     explicit Message(const T& data, uint8_t dataType){ // перегрузка функции с возможностью передать тип сообщения
         if constexpr (std::is_pointer_v<T>) {
-            std::cout << "calling a constructor for pointer" << std::endl;
-            payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
+            if (std::is_same_v<T, void*>) {
+                payload = divideDataIntoBytes(
+                        *data); // переводим сообщение в последовательность байт, с разыменованием указателя на данные
+            }
         } else {
-            std::cout << "calling a constructor for data" << std::endl;
             payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
         }
         messageID = ++idCounter; // инкремент счетчика сообщений
         messageType = dataType; // определяем тип сообщения
+        payloadHash = getDataHash(payload); // хешируем отправляемые байты
+        payloadSize = payload.size();
+    }
+
+    explicit Message(void* data, uint8_t dataType){ // частный случай передачи данных в виде указателей на void
+        messageID = ++idCounter; // инкремент счетчика сообщений
+        messageType = dataType;
+        if (dataType == 1){
+            payload = divideDataIntoBytes(*static_cast<std::vector<double> *>(data));
+        }
+        if (dataType == 2){
+            payload = divideDataIntoBytes(*static_cast<std::vector<int> *>(data));
+        }
+        if (dataType == 3){
+            payload = divideDataIntoBytes(*static_cast<double *>(data));
+        }
+        if (dataType == 4){
+            payload = divideDataIntoBytes(*static_cast<int *>(data));
+        }
+        if (dataType == 5){
+            payload = divideDataIntoBytes(*static_cast<std::string *>(data));
+        }
+
         payloadHash = getDataHash(payload); // хешируем отправляемые байты
         payloadSize = payload.size();
     }

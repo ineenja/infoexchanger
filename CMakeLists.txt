@@ -28,6 +28,9 @@ add_executable(${PROJECT_NAME} main.cpp)
 add_subdirectory(${PROJECT_SOURCE_DIR}/common/mylist)
 target_link_libraries(${PROJECT_NAME} PUBLIC mylist)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/common/msgqueue)
+target_link_libraries(${PROJECT_NAME} PUBLIC msgqueue)
+
 add_subdirectory(${PROJECT_SOURCE_DIR}/common/msg)
 target_link_libraries(${PROJECT_NAME} PUBLIC msg)
 

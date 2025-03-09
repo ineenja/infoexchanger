@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion2024.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\processing_t.dir/objects.a
+C:\PROGRA~1\JetBrains\CLion2024.3\bin\mingw\bin\ar.exe qc CMakeFiles\processing_t.dir/objects.a @CMakeFiles\processing_t.dir\objects1.rsp
+C:\PROGRA~1\JetBrains\CLion2024.3\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\processing_t.dir/objects.a -Wl,--no-whole-archive -o ..\..\infoexchangerproject\binaries\processing_t.exe -Wl,--out-implib,libprocessing_t.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\processing_t.dir\linkLibs.rsp
