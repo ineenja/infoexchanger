@@ -13,8 +13,8 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
     uint32_t hash = 0;
 
     // ...но пока использую банальную контрольную сумму
-    for (const int i : data) {
-        hash += static_cast<uint32_t>(data[i]);
+    for (const uint8_t value : data) {
+        hash += static_cast<uint32_t>(value);
     }
     return hash;
 
@@ -56,7 +56,7 @@ std::vector<uint8_t> divideDataIntoBytes(const T& data) {
 }
 
 
-inline std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint8_t type) {
+inline std::any getDataFromBytes(const std::vector<uint8_t>& bytes, uint32_t type) {
     uint8_t data[bytes.size()];
     for (size_t i = 0; i < bytes.size(); ++i) {
         data[i] = bytes[i];

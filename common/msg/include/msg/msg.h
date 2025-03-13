@@ -10,18 +10,11 @@ public:
     template <typename T>
     explicit Message(const T& data){
         messageID = ++idCounter; // инкремент счетчика сообщений
-        std::cout << "calling a constructor without info about type" << std::endl;
+
         if constexpr (std::is_pointer_v<T>) {
-            if constexpr (std::is_same_v<T, void*>) {
-                messageType = getDataType(5); // определяем тип сообщения
-                payload = divideDataIntoBytes("unknown data"); // переводим сообщение в последовательность байт
-            } else {
-                std::cout << "calling a constructor for pointer" << std::endl;
-                messageType = getDataType(*data); // определяем тип сообщения
-                payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
-            }
+            messageType = getDataType(*data); // определяем тип сообщения
+            payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
         } else {
-            std::cout << "calling a constructor for data" << std::endl;
             messageType = getDataType(data); // определяем тип сообщения
             payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
         }
@@ -39,47 +32,12 @@ public:
     }
 
     template <typename T>
-    explicit Message(const T& data, uint8_t dataType){ // перегрузка функции с возможностью передать тип сообщения
-        std::cout << "calling a constructor with info about type" << std::endl;
+    explicit Message(const T& data, uint32_t dataType){ // перегрузка функции с возможностью передать тип сообщения
         if constexpr (std::is_pointer_v<T>) {
-            std::cout << "calling a constructor for pointer" << std::endl;
-            if constexpr (std::is_same_v<T, void*>) {
-                std::cout << "void pointer was received" << std::endl;
-                std::cout << "data type is " << dataType << std::endl;
-                int dataTypeInt = static_cast<int>(dataType);
-                std::cout << "data type is " << dataTypeInt << std::endl;
-                switch (dataTypeInt) {
-                    case 1: {
-                        std::cout << "casting void to vector<double>" << std::endl;
-                        payload = divideDataIntoBytes(*static_cast<std::vector<double>*>(data));
-                    }
-                    case 2: {
-                        std::cout << "casting void to vector<int>" << std::endl;
-                        payload = divideDataIntoBytes(*static_cast<std::vector<int>*>(data));
-                    }
-                    case 3: {
-                        std::cout << "casting void to double" << std::endl;
-                        payload = divideDataIntoBytes(*static_cast<double*>(data));
-                    }
-                    case 4: {
-                        std::cout << "casting void to int" << std::endl;
-                        payload = divideDataIntoBytes(*static_cast<int*>(data));
-                    }
-                    case 5: {
-                        std::cout << "casting void to string" << std::endl;
-                        payload = divideDataIntoBytes(*static_cast<std::string*>(data));
-                    }
-                    default: {
-                        std::cout << "type is undefined" << std::endl;
-                        payload = divideDataIntoBytes("unknown type");
-                    }
-                }
-            } else {
-                std::cout << "calling a constructor for pointer" << std::endl;
-                payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт
+            if (std::is_same_v<T, void*>) {
+                payload = divideDataIntoBytes(*data); // переводим сообщение в последовательность байт, с разыменованием указателя на данные
             }
         } else {
-            std::cout << "calling a constructor for data" << std::endl;
             payload = divideDataIntoBytes(data); // переводим сообщение в последовательность байт
         }
         messageID = ++idCounter; // инкремент счетчика сообщений
@@ -88,11 +46,43 @@ public:
         payloadSize = payload.size();
     }
 
+    explicit Message(void* data, uint32_t dataType){ // частный случай передачи данных в виде указателей на void
+        messageID = ++idCounter; // инкремент счетчика сообщений
+        messageType = dataType;
+        if (dataType == 1){
+            payload = divideDataIntoBytes(*static_cast<std::vector<double> *>(data));
+        }
+        if (dataType == 2){
+            payload = divideDataIntoBytes(*static_cast<std::vector<int> *>(data));
+        }
+        if (dataType == 3){
+            payload = divideDataIntoBytes(*static_cast<double *>(data));
+        }
+        if (dataType == 4){
+            payload = divideDataIntoBytes(*static_cast<int *>(data));
+        }
+        if (dataType == 5){
+            payload = divideDataIntoBytes(*static_cast<std::string *>(data));
+        }
+
+        payloadHash = getDataHash(payload); // хешируем отправляемые байты
+        payloadSize = payload.size();
+    }
+
+    // конструктор сообщения для его декодинга на приеме
+    explicit Message(const uint32_t messageIDR, const uint32_t messageTypeR, const uint32_t payloadSizeR, const uint32_t payloadHashR, const std::vector<uint8_t>& payloadR){
+        messageID = messageIDR;
+        messageType = messageTypeR;
+        payloadSize = payloadSizeR;
+        payloadHash = payloadHashR;
+        payload = payloadR;
+    }
+
     [[nodiscard]] uint32_t getMessageID() const {
         return messageID;
     }
 
-    [[nodiscard]] uint8_t getMessageType() const {
+    [[nodiscard]] uint32_t getMessageType() const {
         return messageType;
     }
 
@@ -113,11 +103,52 @@ private:
 
 #pragma pack(push, 1)
     uint32_t messageID;
-    uint8_t messageType;
+    uint32_t messageType;
     uint32_t payloadSize;
     uint32_t payloadHash;
     std::vector<uint8_t> payload;
 #pragma pack(pop)
 };
+
+inline Message turnBytesIntoMessage(const uint8_t* data) {
+
+    uint32_t messageID;
+    uint32_t messageType;
+    uint32_t payloadSize;
+    uint32_t payloadHash;
+    std::vector<uint8_t> payload;
+
+    // Чтение фиксированных полей
+    std::memcpy(&messageID, data, sizeof(messageID));
+    data += 4;
+
+    std::memcpy(&messageType, data, sizeof(messageType));
+    data += 4;
+
+    std::memcpy(&payloadSize, data, sizeof(payloadSize));
+    data += 4;
+
+    std::memcpy(&payloadHash, data, sizeof(payloadHash));
+    data += 4;
+
+    // Чтение данных для вектора payload
+    payload.resize(payloadSize); // Устанавливаем размер вектора
+    std::memcpy(payload.data(), data, payloadSize); // Копируем данные
+
+    Message msg(messageID, messageType, payloadSize, payloadHash, payload);
+    return msg;
+}
+
+inline std::vector<uint8_t> divideMessageIntoBytes(const Message& msg) {
+    std::vector<uint8_t> bytesOfMsg;
+
+    const uint8_t* fixedData = reinterpret_cast<const uint8_t*>(&msg);
+    bytesOfMsg.insert(bytesOfMsg.end(), fixedData, fixedData + sizeof(Message) - sizeof(std::vector<uint8_t>));
+
+    std::vector<uint8_t> msgPayload = msg.getPayload();
+    bytesOfMsg.insert(bytesOfMsg.end(), msgPayload.begin(), msgPayload.end());
+
+    return bytesOfMsg;
+}
 
 #endif

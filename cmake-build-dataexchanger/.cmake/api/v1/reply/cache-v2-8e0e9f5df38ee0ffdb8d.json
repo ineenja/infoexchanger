@@ -1187,7 +1187,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "general;msg;"
+			"value" : "general;msg;general;mylist;"
 		},
 		{
 			"name" : "datasource_SOURCE_DIR",

@@ -144,6 +144,40 @@ TEST(MessageTests, PassingACastedVoidPointerToMessageConstructor) {
     }
 }
 
+TEST(MessageTests, BytesIntoMessageCheck) {
+
+    uint8_t serializedData[] = {
+        0x01, 0x00, 0x00, 0x00, // messageID = 1
+        0x02, 0x00, 0x00, 0x00,     // messageType = 2
+        0x03, 0x00, 0x00, 0x00, // payloadSize = 3
+        0xAA, 0xBB, 0xCC, 0xDD, // payloadHash = 0xAABBCCDD
+        0x11, 0x22, 0x33        // payload = {0x11, 0x22, 0x33}
+    };
+
+
+    Message checkMsg = turnBytesIntoMessage(serializedData);
+
+    EXPECT_EQ(checkMsg.getMessageID(), 1);
+    EXPECT_EQ(checkMsg.getMessageType(), 2);
+    EXPECT_EQ(checkMsg.getPayloadSize(), 3);
+}
+
+TEST(MessageTests, MessageToBytesAndBytesIntoMessageCheck) {
+
+    std::vector<double> testData1 = {1,2,3,4,5};
+    void* ptr = &testData1;
+    Message testMsg1(*static_cast<std::vector<double>*>(ptr));
+
+    std::vector<uint8_t> serializedData = divideMessageIntoBytes(testMsg1);
+    uint8_t* dataPtr = serializedData.data();
+
+    Message checkMsg = turnBytesIntoMessage(dataPtr);
+
+    EXPECT_EQ(checkMsg.getMessageID(), 17);
+    EXPECT_EQ(checkMsg.getMessageType(), 1);
+    EXPECT_EQ(checkMsg.getPayloadSize(), 40);
+}
+
 ///// TODO:
 /// тесты функции хеширования
 ///

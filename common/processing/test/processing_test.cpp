@@ -80,3 +80,16 @@ TEST(ProcessingTests, getDataTypeCheck) {
     EXPECT_EQ(getDataType(testData4), 4);
     EXPECT_EQ(getDataType(testData5), 5);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

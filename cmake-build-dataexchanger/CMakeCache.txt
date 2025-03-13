@@ -222,7 +222,7 @@ datasource_BINARY_DIR:STATIC=/home/andreytas/work/development/projects/infoexcha
 datasource_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-datasource_LIB_DEPENDS:STATIC=general;msg;
+datasource_LIB_DEPENDS:STATIC=general;msg;general;mylist;
 
 //Value Computed by CMake
 datasource_SOURCE_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/datasource

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "infoexchangerproject/binaries/lib/libdatasource.so"
+			"path" : "infoexchangerproject/binaries/lib/libmsg.so"
 		}
 	],
 	"backtrace" : 1,
@@ -16,7 +16,6 @@
 		],
 		"files" : 
 		[
-			"datasource/CMakeLists.txt",
 			"common/msg/CMakeLists.txt"
 		],
 		"nodes" : 
@@ -35,15 +34,6 @@
 				"file" : 0,
 				"line" : 15,
 				"parent" : 0
-			},
-			{
-				"file" : 1
-			},
-			{
-				"command" : 1,
-				"file" : 1,
-				"line" : 15,
-				"parent" : 3
 			},
 			{
 				"command" : 2,
@@ -77,36 +67,28 @@
 			"defines" : 
 			[
 				{
-					"define" : "datasource_EXPORTS"
+					"define" : "msg_EXPORTS"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource"
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/msg"
 				},
 				{
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/lib"
-				},
-				{
-					"backtrace" : 7,
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include/datasource"
-				},
-				{
-					"backtrace" : 2,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/lib"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include/msg"
 				},
 				{
 					"backtrace" : 2,
@@ -136,14 +118,10 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "msg::@0a87d6f3b5bdbe21879c"
-		},
-		{
-			"backtrace" : 2,
 			"id" : "processing::@6dee88bf54cc123f75a0"
 		}
 	],
-	"id" : "datasource::@cd6f0eaedae6797a6a9c",
+	"id" : "msg::@0a87d6f3b5bdbe21879c",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -158,23 +136,18 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 4,
 				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "datasource",
-	"nameOnDisk" : "libdatasource.so",
+	"name" : "msg",
+	"nameOnDisk" : "libmsg.so",
 	"paths" : 
 	{
-		"build" : "datasource",
-		"source" : "datasource"
+		"build" : "common/msg",
+		"source" : "common/msg"
 	},
 	"sourceGroups" : 
 	[
@@ -197,13 +170,13 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "datasource/include/datasource/datasource.h",
+			"path" : "common/msg/include/msg/msg.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "datasource/src/datasource.cpp",
+			"path" : "common/msg/src/msg.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],
