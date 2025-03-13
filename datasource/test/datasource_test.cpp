@@ -63,7 +63,7 @@ TEST(DataSourceTests, DifferentMessagesCreationCheckWithTimer) {
         if (CurrentTime - StartTime >= duration) {
             break;
         }
-        TestMsgCreator.newMsg(*static_cast<std::vector<double>*>(arr[0]));
+        TestMsgCreator.newMsg(arr[0], 1);
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
     EXPECT_EQ(MessagesQueue.size(), 7);
