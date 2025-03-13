@@ -71,7 +71,7 @@ class MessageGenerator {
 
 class MessageTransferer {
     public:
-    MessageTransferer(std::chrono::milliseconds interval, MyList<Message>* messageQueuePointer, uint8_t* sharedMemoryPtr, uint8_t sharedMemorySize, uint8_t sharedMemorySlotSize)
+    MessageTransferer(std::chrono::milliseconds interval, MyList<Message>* messageQueuePointer, uint8_t* sharedMemoryPtr, uint32_t sharedMemorySize, uint8_t sharedMemorySlotSize)
         : interval_(interval), lastPullingTime_(std::chrono::steady_clock::now()), messagesQueuePointer(messageQueuePointer),
     sharedMemoryPtr(sharedMemoryPtr), sharedMemorySize(sharedMemorySize), sharedMemorySlotSize(sharedMemorySlotSize) {};
 
@@ -82,7 +82,6 @@ class MessageTransferer {
             std::vector<uint8_t> tempMessageSequenced;
             if (messagesQueuePointer->getSize() > 0) {
                 tempMessageSequenced = divideMessageIntoBytes(messagesQueuePointer->front()); // секвентируем первое сообщение в очереди, записывая во временный вектор байт
-                std::cout << "size of pulled msg, in bytes: " << tempMessageSequenced.size() << std::endl;
                 messagesQueuePointer->popFront(); // удаляем его из очереди
 
                 if (sharedMemoryPtr + sharedMemorySize > sharedMemoryPtr + sharedMemorySlotSize){ // чтобы предотвратить ошибку сегментации (VALGRIND MEMCHECK INVALID WRITE)
@@ -109,7 +108,7 @@ class MessageTransferer {
     MyList<Message>* messagesQueuePointer; // указатель на очередь
 
     uint8_t* sharedMemoryPtr;
-    uint8_t sharedMemorySize;
+    uint32_t sharedMemorySize;
     uint8_t sharedMemorySlotSize;
 };
 

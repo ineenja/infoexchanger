@@ -36,6 +36,7 @@ TEST(DataSourceTests, MessageCreationCheckWithTimer) {
      }
 
     std::cout << "average time to create a message is " << TestMsgCreator.getMeanTimeToCreateAMsg().count() << " ns" << std::endl;
+    std::cout << std::endl;
 }
 
 ///// тест создания разных сообщений раз в интервал
@@ -110,6 +111,7 @@ TEST(DataSourceTests, DifferentMessagesCreationCheckWithTimer) {
     }
 
     std::cout << "average time to create a message is " << TestMsgCreator.getMeanTimeToCreateAMsg().count() << " ns" << std::endl;
+    std::cout << std::endl;
 }
 
 ///// тест закидывания сообщений в очередь с лимитированным размером
@@ -141,6 +143,7 @@ TEST(DataSourceTests, QueueSizeControlCheck) {
     EXPECT_EQ((MessagesQueue.front()).getMessageID(), 9);
 
     std::cout << "average time to create a message is " << TestMsgCreator.getMeanTimeToCreateAMsg().count() << " ns" << std::endl;
+    std::cout << std::endl;
 }
 
 
@@ -185,7 +188,6 @@ TEST(DataSourceTests, SingleMessagesMovingCheck) {
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
-    std::cout << std::endl;
 
     uint8_t sharedMemorySize = sizeof(uint8_t) * 1000;
     uint8_t sharedMemorySlotSize = sizeof(uint8_t) * 100;
@@ -223,9 +225,105 @@ TEST(DataSourceTests, SingleMessagesMovingCheck) {
     //     EXPECT_EQ(checkData2[i++], value);
     // }
 
-
     delete [] sharedMemoryPtr;
+    std::cout << std::endl;
 }
+
+/// тест вытаскивания сообщений из очереди с последующим копированием в общую память, проверяем на нескольких сообщениях
+TEST(DataSourceTests, ManyMessagesMovingCheck) {
+
+    std::vector<double> testData1 = {1,2,3,4,5};
+    std::vector<int> testData2 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+    double testData3 = 4124;
+    int testData4 = 41421;
+    std::string testData5 = "dollbyopp";
+
+    void* arr[5];
+    arr[0] = &testData1;
+    arr[1] = &testData2;
+    arr[2] = &testData3;
+    arr[3] = &testData4;
+    arr[4] = &testData5;
+
+    MyList<Message> MessagesQueue;
+
+    MessageGenerator TestMsgCreator = MessageGenerator(std::chrono::milliseconds(500), &MessagesQueue);
+
+    auto StartTime = std::chrono::steady_clock::now();
+    std::chrono::milliseconds duration(3000);
+
+    while (true) {
+        auto CurrentTime = std::chrono::steady_clock::now();
+        if (CurrentTime - StartTime >= duration) {
+            break;
+        }
+        bool msgWasCreated = TestMsgCreator.newMsg(arr[MessagesQueue.getSize()], MessagesQueue.getSize()+1);
+        if (msgWasCreated == true){
+            std::cout << "msg was created" << std::endl;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    uint32_t sharedMemorySize = sizeof(uint8_t) * 1000;
+    uint8_t sharedMemorySlotSize = sizeof(uint8_t) * 100;
+    auto *sharedMemoryPtr = new uint8_t[sharedMemorySize];
+
+    MessageTransferer TestMsgTransferer = MessageTransferer(std::chrono::milliseconds(500), &MessagesQueue, sharedMemoryPtr, sharedMemorySize, sharedMemorySlotSize);
+    StartTime = std::chrono::steady_clock::now();
+
+    while (true) {
+        auto CurrentTime = std::chrono::steady_clock::now();
+        if (CurrentTime - StartTime >= duration) {
+            break;
+        }
+        bool msgWasPulled = TestMsgTransferer.tryPullMsg();
+        if (msgWasPulled == true){
+            std::cout << "msg was pulled" << std::endl;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    std::cout << "pulling finished" << std::endl;
+
+    Message checkData1Msg = turnBytesIntoMessage(sharedMemoryPtr);
+    auto checkData1 = any_cast<std::vector<double>>(getDataFromBytes(checkData1Msg.getPayload(), checkData1Msg.getMessageType()));
+    int i = 0;
+    for (const double value : testData1) {
+        EXPECT_EQ(checkData1[i++], value);
+    }
+    std::cout << "first msg is OK" << std::endl;
+
+    sharedMemoryPtr = sharedMemoryPtr + sharedMemorySlotSize;
+    Message checkData2Msg = turnBytesIntoMessage(sharedMemoryPtr);
+    auto checkData2 = any_cast<std::vector<int>>(getDataFromBytes(checkData2Msg.getPayload(), checkData2Msg.getMessageType()));
+    i = 0;
+    for (const double value : testData2) {
+        EXPECT_EQ(checkData2[i++], value);
+    }
+    std::cout << "second msg is OK" << std::endl;
+
+    sharedMemoryPtr = sharedMemoryPtr + sharedMemorySlotSize;
+    Message checkData3Msg = turnBytesIntoMessage(sharedMemoryPtr);
+    auto checkData3 = any_cast<double>(getDataFromBytes(checkData3Msg.getPayload(), checkData3Msg.getMessageType()));
+    EXPECT_EQ(checkData3, testData3);
+    std::cout << "third msg is OK" << std::endl;
+
+    sharedMemoryPtr = sharedMemoryPtr + sharedMemorySlotSize;
+    Message checkData4Msg = turnBytesIntoMessage(sharedMemoryPtr);
+    auto checkData4 = any_cast<int>(getDataFromBytes(checkData4Msg.getPayload(), checkData4Msg.getMessageType()));
+    EXPECT_EQ(checkData4, testData4);
+    std::cout << "fourth msg is OK" << std::endl;
+
+    sharedMemoryPtr = sharedMemoryPtr + sharedMemorySlotSize;
+    Message checkData5Msg = turnBytesIntoMessage(sharedMemoryPtr);
+    auto checkData5 = any_cast<std::string>(getDataFromBytes(checkData5Msg.getPayload(), checkData5Msg.getMessageType()));
+    EXPECT_EQ(checkData5, testData5);
+    std::cout << "fifth msg is OK" << std::endl;
+
+    std::cout << std::endl;
+}
+
 
 
 
