@@ -37,6 +37,12 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 41,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
 				"line" : 29,
 				"parent" : 0
 			},
@@ -66,27 +72,27 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/mylist"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/mylist/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
 				},
 				{
@@ -96,6 +102,14 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include"
 				}
 			],
 			"language" : "CXX",
@@ -116,20 +130,24 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 3,
+			"backtrace" : 4,
 			"id" : "mylist::@a958939555f4b85ba85d"
 		},
 		{
-			"backtrace" : 4,
+			"backtrace" : 5,
 			"id" : "msg::@0a87d6f3b5bdbe21879c"
 		},
 		{
-			"backtrace" : 4,
+			"backtrace" : 5,
 			"id" : "processing::@6dee88bf54cc123f75a0"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "datasource::@cd6f0eaedae6797a6a9c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "imemorysupplier::@a2a95ccce79bc90d0f24"
 		}
 	],
 	"id" : "infoexchangerproject::@6890427a1f51a3e7e1df",
@@ -156,16 +174,21 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "infoexchangerproject/binaries/lib/libmylist.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libimemorysupplier.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libmylist.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 5,
+				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
 				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
 				"role" : "libraries"
 			}

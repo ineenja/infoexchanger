@@ -49,6 +49,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/msg/cmake_install.cmake")
   include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/processing/cmake_install.cmake")
   include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource/cmake_install.cmake")
+  include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/cmake_install.cmake")
 
 endif()
 

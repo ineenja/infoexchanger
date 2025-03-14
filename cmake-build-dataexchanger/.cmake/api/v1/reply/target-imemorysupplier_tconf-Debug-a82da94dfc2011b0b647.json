@@ -1,0 +1,58 @@
+{
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include"
+		],
+		"files" : 
+		[
+			"memorysupplier/imemorysupplier/test/config/conf.cmake",
+			"memorysupplier/imemorysupplier/unittest.cmake",
+			"memorysupplier/imemorysupplier/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 2,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 2
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 4
+			}
+		]
+	},
+	"id" : "imemorysupplier_tconf::@a2a95ccce79bc90d0f24",
+	"name" : "imemorysupplier_tconf",
+	"paths" : 
+	{
+		"build" : "memorysupplier/imemorysupplier",
+		"source" : "memorysupplier/imemorysupplier"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

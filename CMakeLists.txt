@@ -37,7 +37,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC processing)
 add_subdirectory(${PROJECT_SOURCE_DIR}/datasource)
 target_link_libraries(${PROJECT_NAME} PUBLIC datasource)
 
-
+add_subdirectory(${PROJECT_SOURCE_DIR}/memorysupplier/imemorysupplier)
+target_link_libraries(${PROJECT_NAME} PUBLIC imemorysupplier)
 
 
 

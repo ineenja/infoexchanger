@@ -31,3 +31,9 @@
 /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource/CMakeFiles/test.dir
 /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource/CMakeFiles/edit_cache.dir
 /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datasource/CMakeFiles/rebuild_cache.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/CMakeFiles/imemorysupplier.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/CMakeFiles/imemorysupplier_t.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/CMakeFiles/imemorysupplier_tconf.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/CMakeFiles/test.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/CMakeFiles/edit_cache.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier/CMakeFiles/rebuild_cache.dir

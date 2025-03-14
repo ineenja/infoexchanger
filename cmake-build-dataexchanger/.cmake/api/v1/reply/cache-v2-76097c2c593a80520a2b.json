@@ -763,7 +763,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "7"
+			"value" : "8"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1320,6 +1320,42 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/andreytas/work/development/projects/infoexchanger/datasources/idatasource"
+		},
+		{
+			"name" : "imemorysupplier_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/imemorysupplier"
+		},
+		{
+			"name" : "imemorysupplier_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "imemorysupplier_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier"
 		},
 		{
 			"name" : "infoexchangerproject_BINARY_DIR",

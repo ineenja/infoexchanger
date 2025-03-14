@@ -20,6 +20,14 @@ inline uint32_t getDataHash(const std::vector<uint8_t>& data) {
 
 }
 
+bool checkHash(const std::vector<uint8_t>& data, uint32_t hashReceived) {
+    uint32_t hash = getDataHash(data);
+    if (hash == hashReceived) {
+        return true;
+    }
+    return false;
+}
+
 template <typename T>
 concept HasDataMethod = requires(T obj) {
     { obj.data() } -> std::same_as<typename T::value_type*>; // data() должен возвращать указатель на value_type

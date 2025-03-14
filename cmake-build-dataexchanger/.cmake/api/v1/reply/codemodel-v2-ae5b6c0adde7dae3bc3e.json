@@ -12,7 +12,8 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -23,7 +24,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						4
+						7
 					]
 				},
 				{
@@ -68,7 +69,7 @@
 					"source" : "common/mylist",
 					"targetIndexes" : 
 					[
-						8
+						11
 					]
 				},
 				{
@@ -83,9 +84,9 @@
 					"source" : "common/msg",
 					"targetIndexes" : 
 					[
-						5,
-						6,
-						7
+						8,
+						9,
+						10
 					]
 				},
 				{
@@ -100,9 +101,9 @@
 					"source" : "common/processing",
 					"targetIndexes" : 
 					[
-						9,
-						10,
-						11
+						12,
+						13,
+						14
 					]
 				},
 				{
@@ -121,6 +122,23 @@
 						1,
 						2
 					]
+				},
+				{
+					"build" : "memorysupplier/imemorysupplier",
+					"jsonFile" : "directory-memorysupplier.imemorysupplier-Debug-2dfaedbba3528243682d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 7,
+					"source" : "memorysupplier/imemorysupplier",
+					"targetIndexes" : 
+					[
+						4,
+						5,
+						6
+					]
 				}
 			],
 			"name" : "Debug",
@@ -133,7 +151,8 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7
 					],
 					"directoryIndexes" : 
 					[
@@ -142,7 +161,7 @@
 					"name" : "infoexchangerproject",
 					"targetIndexes" : 
 					[
-						4
+						7
 					]
 				},
 				{
@@ -178,7 +197,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						8
+						11
 					]
 				},
 				{
@@ -190,9 +209,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						5,
-						6,
-						7
+						8,
+						9,
+						10
 					]
 				},
 				{
@@ -204,9 +223,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						9,
-						10,
-						11
+						12,
+						13,
+						14
 					]
 				},
 				{
@@ -221,6 +240,20 @@
 						0,
 						1,
 						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						7
+					],
+					"name" : "imemorysupplier",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4,
+						5,
+						6
 					]
 				}
 			],
@@ -255,9 +288,30 @@
 					"projectIndex" : 2
 				},
 				{
+					"directoryIndex" : 7,
+					"id" : "imemorysupplier::@a2a95ccce79bc90d0f24",
+					"jsonFile" : "target-imemorysupplier-Debug-0eed977aa72b22331bd7.json",
+					"name" : "imemorysupplier",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "imemorysupplier_t::@a2a95ccce79bc90d0f24",
+					"jsonFile" : "target-imemorysupplier_t-Debug-974972027dc6233c3e46.json",
+					"name" : "imemorysupplier_t",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "imemorysupplier_tconf::@a2a95ccce79bc90d0f24",
+					"jsonFile" : "target-imemorysupplier_tconf-Debug-a82da94dfc2011b0b647.json",
+					"name" : "imemorysupplier_tconf",
+					"projectIndex" : 7
+				},
+				{
 					"directoryIndex" : 0,
 					"id" : "infoexchangerproject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-infoexchangerproject-Debug-2d6d4f9a29adf23da721.json",
+					"jsonFile" : "target-infoexchangerproject-Debug-e96ddf00b45f2a7e34e8.json",
 					"name" : "infoexchangerproject",
 					"projectIndex" : 0
 				},
