@@ -222,7 +222,7 @@ buffermanager_BINARY_DIR:STATIC=/home/andreytas/work/development/projects/infoex
 buffermanager_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-buffermanager_LIB_DEPENDS:STATIC=general;imemorysupplier;
+buffermanager_LIB_DEPENDS:STATIC=general;imemorysupplier;general;sharedmemmemorysupplier;
 
 //Value Computed by CMake
 buffermanager_SOURCE_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/buffermanager

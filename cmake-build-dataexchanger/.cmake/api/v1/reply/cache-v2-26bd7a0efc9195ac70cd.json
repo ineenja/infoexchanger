@@ -1187,7 +1187,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "general;imemorysupplier;"
+			"value" : "general;imemorysupplier;general;sharedmemmemorysupplier;"
 		},
 		{
 			"name" : "buffermanager_SOURCE_DIR",

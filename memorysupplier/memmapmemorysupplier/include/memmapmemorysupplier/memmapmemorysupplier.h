@@ -3,9 +3,8 @@
 
 #include "imemorysupplier/imemorysupplier.h"
 
-class MemMapMemorySupplier : public IMemorySupplier {
+struct MemMapMemorySupplier : public IMemorySupplier {
 
-public:
     void locateMemory(uint32_t size) override {
 
     }

@@ -12,7 +12,7 @@ add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC imemorysupplier)
+target_link_libraries(${PROJECT_NAME} PUBLIC imemorysupplier sharedmemmemorysupplier)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lib)

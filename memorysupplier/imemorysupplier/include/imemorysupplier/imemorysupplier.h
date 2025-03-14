@@ -1,20 +1,19 @@
 #ifndef IMEMORYSUPPLIER
 #define IMEMORYSUPPLIER
 
-#include <cstdint>
+#include <vector>
+#include <iostream>
+#include <cstring>
 
 class IMemorySupplier {
 
 public:
+
     virtual ~IMemorySupplier() = default;
 
-    virtual void locateMemory(uint32_t size) = 0;
+    virtual void locateMemory() = 0;
 
 protected:
-    uint32_t size;
-    uint8_t* start;
-    uint8_t* end;
-
 };
 
 

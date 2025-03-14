@@ -108,6 +108,14 @@
 				{
 					"backtrace" : 4,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier/include"
 				}
 			],
 			"language" : "CXX",
@@ -135,6 +143,10 @@
 		{
 			"backtrace" : 4,
 			"id" : "imemorysupplier::@a2a95ccce79bc90d0f24"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "sharedmemmemorysupplier::@e25a42dcbb04740a9a94"
 		},
 		{
 			"backtrace" : 4,
@@ -170,6 +182,11 @@
 			{
 				"backtrace" : 4,
 				"fragment" : "infoexchangerproject/binaries/lib/libbuffermanager.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "infoexchangerproject/binaries/lib/libsharedmemmemorysupplier.so",
 				"role" : "libraries"
 			},
 			{

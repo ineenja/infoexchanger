@@ -97,6 +97,14 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier/include"
 				}
 			],
 			"language" : "CXX",
@@ -119,6 +127,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "imemorysupplier::@a2a95ccce79bc90d0f24"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "sharedmemmemorysupplier::@e25a42dcbb04740a9a94"
 		}
 	],
 	"id" : "buffermanager::@5fc1cc6c70802e1156cc",
@@ -132,6 +144,11 @@
 			},
 			{
 				"fragment" : "-Wl,-rpath,/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/infoexchangerproject/binaries/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "infoexchangerproject/binaries/lib/libsharedmemmemorysupplier.so",
 				"role" : "libraries"
 			},
 			{
