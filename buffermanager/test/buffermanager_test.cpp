@@ -12,11 +12,10 @@ TEST(BufferManagerTests, BufferManagerTest) {
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite = {0x01, 0x02, 0x03, 0x04, 0x05};
-    bufferManager.writePocket(dataToWrite); // Записываем начиная с индекса 0
+    bufferManager.writePocket(dataToWrite, 5); // Записываем начиная с индекса 0
 
     // Пример чтения данных из shared memory
-    std::vector<uint8_t> read_data = bufferManager.readPocket(dataToWrite.size());
-    std::cout << "Read from shared memory: ";
+    std::vector<uint8_t> read_data = bufferManager.readPocket(dataToWrite.size(), 5);
     int i = 1;
     for (uint8_t byte : read_data) {
         EXPECT_EQ(static_cast<int>(byte), i++);

@@ -17,7 +17,7 @@ public:
 
         Bip::scoped_lock<Bip::named_mutex> lock(mutex);
         void* mem = memorySupply.getMemory();
-        std::memcpy(static_cast<uint8_t*>(mem) + offset, data.data(), data.size());
+        std::memcpy(static_cast<uint8_t*>(mem) + offset * position, data.data(), data.size());
     }
 
     std::vector<uint8_t> readPocket(size_t size, size_t position) {
@@ -28,7 +28,7 @@ public:
         Bip::scoped_lock<Bip::named_mutex> lock(mutex);
         void* mem = memorySupply.getMemory();
         std::vector<uint8_t> buffer(size);
-        std::memcpy(buffer.data(), static_cast<uint8_t*>(mem) + offset, size);
+        std::memcpy(buffer.data(), static_cast<uint8_t*>(mem) + offset * position, size);
         return buffer;
     }
 
