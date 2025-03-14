@@ -40,6 +40,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC datasource)
 add_subdirectory(${PROJECT_SOURCE_DIR}/memorysupplier/imemorysupplier)
 target_link_libraries(${PROJECT_NAME} PUBLIC imemorysupplier)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/buffermanager)
+target_link_libraries(${PROJECT_NAME} PUBLIC buffermanager)
+
 
 
 

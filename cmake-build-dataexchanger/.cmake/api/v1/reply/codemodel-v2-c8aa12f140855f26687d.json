@@ -13,7 +13,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -24,7 +25,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						7
+						10
 					]
 				},
 				{
@@ -54,7 +55,7 @@
 					"source" : "googletests/gtest",
 					"targetIndexes" : 
 					[
-						3
+						6
 					]
 				},
 				{
@@ -69,7 +70,7 @@
 					"source" : "common/mylist",
 					"targetIndexes" : 
 					[
-						11
+						14
 					]
 				},
 				{
@@ -84,9 +85,9 @@
 					"source" : "common/msg",
 					"targetIndexes" : 
 					[
-						8,
-						9,
-						10
+						11,
+						12,
+						13
 					]
 				},
 				{
@@ -101,9 +102,9 @@
 					"source" : "common/processing",
 					"targetIndexes" : 
 					[
-						12,
-						13,
-						14
+						15,
+						16,
+						17
 					]
 				},
 				{
@@ -118,9 +119,9 @@
 					"source" : "datasource",
 					"targetIndexes" : 
 					[
-						0,
-						1,
-						2
+						3,
+						4,
+						5
 					]
 				},
 				{
@@ -135,9 +136,26 @@
 					"source" : "memorysupplier/imemorysupplier",
 					"targetIndexes" : 
 					[
-						4,
-						5,
-						6
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"build" : "buffermanager",
+					"jsonFile" : "directory-buffermanager-Debug-c5bd86f28b9ad8837f10.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 8,
+					"source" : "buffermanager",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
 					]
 				}
 			],
@@ -152,7 +170,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					],
 					"directoryIndexes" : 
 					[
@@ -161,7 +180,7 @@
 					"name" : "infoexchangerproject",
 					"targetIndexes" : 
 					[
-						7
+						10
 					]
 				},
 				{
@@ -185,7 +204,7 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						3
+						6
 					]
 				},
 				{
@@ -197,7 +216,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						11
+						14
 					]
 				},
 				{
@@ -209,9 +228,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						8,
-						9,
-						10
+						11,
+						12,
+						13
 					]
 				},
 				{
@@ -223,9 +242,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						12,
-						13,
-						14
+						15,
+						16,
+						17
 					]
 				},
 				{
@@ -237,9 +256,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						0,
-						1,
-						2
+						3,
+						4,
+						5
 					]
 				},
 				{
@@ -251,14 +270,49 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						4,
-						5,
-						6
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "buffermanager",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 8,
+					"id" : "buffermanager::@5fc1cc6c70802e1156cc",
+					"jsonFile" : "target-buffermanager-Debug-33bb2b40f6989d1c6638.json",
+					"name" : "buffermanager",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "buffermanager_t::@5fc1cc6c70802e1156cc",
+					"jsonFile" : "target-buffermanager_t-Debug-e3201ec885515207e26b.json",
+					"name" : "buffermanager_t",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "buffermanager_tconf::@5fc1cc6c70802e1156cc",
+					"jsonFile" : "target-buffermanager_tconf-Debug-caa29d12ffea39ee60ef.json",
+					"name" : "buffermanager_tconf",
+					"projectIndex" : 8
+				},
 				{
 					"directoryIndex" : 6,
 					"id" : "datasource::@cd6f0eaedae6797a6a9c",
@@ -311,7 +365,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "infoexchangerproject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-infoexchangerproject-Debug-e96ddf00b45f2a7e34e8.json",
+					"jsonFile" : "target-infoexchangerproject-Debug-45922ae63b9c6892c44c.json",
 					"name" : "infoexchangerproject",
 					"projectIndex" : 0
 				},

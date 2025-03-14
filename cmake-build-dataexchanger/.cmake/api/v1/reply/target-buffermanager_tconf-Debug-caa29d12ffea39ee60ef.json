@@ -1,0 +1,58 @@
+{
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include"
+		],
+		"files" : 
+		[
+			"buffermanager/test/config/conf.cmake",
+			"buffermanager/unittest.cmake",
+			"buffermanager/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 2,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 2
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 4
+			}
+		]
+	},
+	"id" : "buffermanager_tconf::@5fc1cc6c70802e1156cc",
+	"name" : "buffermanager_tconf",
+	"paths" : 
+	{
+		"build" : "buffermanager",
+		"source" : "buffermanager"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

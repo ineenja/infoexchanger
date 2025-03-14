@@ -47,12 +47,12 @@ cmake_ninja_workdir = /home/andreytas/work/development/projects/infoexchanger/cm
 #############################################
 # Order-only phony target for infoexchangerproject
 
-build cmake_object_order_depends_target_infoexchangerproject: phony || cmake_object_order_depends_target_datasource cmake_object_order_depends_target_imemorysupplier cmake_object_order_depends_target_msg cmake_object_order_depends_target_mylist cmake_object_order_depends_target_processing
+build cmake_object_order_depends_target_infoexchangerproject: phony || cmake_object_order_depends_target_buffermanager cmake_object_order_depends_target_datasource cmake_object_order_depends_target_imemorysupplier cmake_object_order_depends_target_msg cmake_object_order_depends_target_mylist cmake_object_order_depends_target_processing
 
 build CMakeFiles/infoexchangerproject.dir/main.cpp.o: CXX_COMPILER__infoexchangerproject_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/main.cpp || cmake_object_order_depends_target_infoexchangerproject
   DEP_FILE = CMakeFiles/infoexchangerproject.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/common/mylist -I/home/andreytas/work/development/projects/infoexchanger/common/mylist/include -I/home/andreytas/work/development/projects/infoexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include -I/home/andreytas/work/development/projects/infoexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource/include -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include
+  INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/common/mylist -I/home/andreytas/work/development/projects/infoexchanger/common/mylist/include -I/home/andreytas/work/development/projects/infoexchanger/common/msg -I/home/andreytas/work/development/projects/infoexchanger/common/msg/include -I/home/andreytas/work/development/projects/infoexchanger/common/processing -I/home/andreytas/work/development/projects/infoexchanger/common/processing/include -I/home/andreytas/work/development/projects/infoexchanger/datasource -I/home/andreytas/work/development/projects/infoexchanger/datasource/include -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include -I/home/andreytas/work/development/projects/infoexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/buffermanager/include
   OBJECT_DIR = CMakeFiles/infoexchangerproject.dir
   OBJECT_FILE_DIR = CMakeFiles/infoexchangerproject.dir
 
@@ -64,9 +64,9 @@ build CMakeFiles/infoexchangerproject.dir/main.cpp.o: CXX_COMPILER__infoexchange
 #############################################
 # Link the executable infoexchangerproject/binaries/infoexchangerproject
 
-build infoexchangerproject/binaries/infoexchangerproject: CXX_EXECUTABLE_LINKER__infoexchangerproject_Debug CMakeFiles/infoexchangerproject.dir/main.cpp.o | infoexchangerproject/binaries/lib/libdatasource.so infoexchangerproject/binaries/lib/libimemorysupplier.so infoexchangerproject/binaries/lib/libmylist.so infoexchangerproject/binaries/lib/libmsg.so infoexchangerproject/binaries/lib/libprocessing.so || infoexchangerproject/binaries/lib/libdatasource.so infoexchangerproject/binaries/lib/libimemorysupplier.so infoexchangerproject/binaries/lib/libmsg.so infoexchangerproject/binaries/lib/libmylist.so infoexchangerproject/binaries/lib/libprocessing.so
+build infoexchangerproject/binaries/infoexchangerproject: CXX_EXECUTABLE_LINKER__infoexchangerproject_Debug CMakeFiles/infoexchangerproject.dir/main.cpp.o | infoexchangerproject/binaries/lib/libdatasource.so infoexchangerproject/binaries/lib/libbuffermanager.so infoexchangerproject/binaries/lib/libmylist.so infoexchangerproject/binaries/lib/libmsg.so infoexchangerproject/binaries/lib/libprocessing.so infoexchangerproject/binaries/lib/libimemorysupplier.so || infoexchangerproject/binaries/lib/libbuffermanager.so infoexchangerproject/binaries/lib/libdatasource.so infoexchangerproject/binaries/lib/libimemorysupplier.so infoexchangerproject/binaries/lib/libmsg.so infoexchangerproject/binaries/lib/libmylist.so infoexchangerproject/binaries/lib/libprocessing.so
   FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/infoexchangerproject/binaries/lib  infoexchangerproject/binaries/lib/libdatasource.so  infoexchangerproject/binaries/lib/libimemorysupplier.so  infoexchangerproject/binaries/lib/libmylist.so  infoexchangerproject/binaries/lib/libmsg.so  infoexchangerproject/binaries/lib/libprocessing.so
+  LINK_LIBRARIES = -Wl,-rpath,/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/infoexchangerproject/binaries/lib  infoexchangerproject/binaries/lib/libdatasource.so  infoexchangerproject/binaries/lib/libbuffermanager.so  infoexchangerproject/binaries/lib/libmylist.so  infoexchangerproject/binaries/lib/libmsg.so  infoexchangerproject/binaries/lib/libprocessing.so  infoexchangerproject/binaries/lib/libimemorysupplier.so
   OBJECT_DIR = CMakeFiles/infoexchangerproject.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -797,7 +797,136 @@ build memorysupplier/imemorysupplier/CMakeFiles/rebuild_cache.util: CUSTOM_COMMA
 build memorysupplier/imemorysupplier/rebuild_cache: phony memorysupplier/imemorysupplier/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/andreytas/work/development/projects/infoexchanger/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target buffermanager
+
+
+#############################################
+# Order-only phony target for buffermanager
+
+build cmake_object_order_depends_target_buffermanager: phony || cmake_object_order_depends_target_imemorysupplier
+
+build buffermanager/CMakeFiles/buffermanager.dir/src/buffermanager.cpp.o: CXX_COMPILER__buffermanager_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/buffermanager/src/buffermanager.cpp || cmake_object_order_depends_target_buffermanager
+  DEFINES = -Dbuffermanager_EXPORTS
+  DEP_FILE = buffermanager/CMakeFiles/buffermanager.dir/src/buffermanager.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fPIC -fdiagnostics-color=always
+  INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/buffermanager/include -I/home/andreytas/work/development/projects/infoexchanger/buffermanager/lib -I/home/andreytas/work/development/projects/infoexchanger/buffermanager/include/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include
+  OBJECT_DIR = buffermanager/CMakeFiles/buffermanager.dir
+  OBJECT_FILE_DIR = buffermanager/CMakeFiles/buffermanager.dir/src
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target buffermanager
+
+
+#############################################
+# Link the shared library infoexchangerproject/binaries/lib/libbuffermanager.so
+
+build infoexchangerproject/binaries/lib/libbuffermanager.so: CXX_SHARED_LIBRARY_LINKER__buffermanager_Debug buffermanager/CMakeFiles/buffermanager.dir/src/buffermanager.cpp.o | infoexchangerproject/binaries/lib/libimemorysupplier.so || infoexchangerproject/binaries/lib/libimemorysupplier.so
+  LANGUAGE_COMPILE_FLAGS = -g
+  LINK_LIBRARIES = -Wl,-rpath,/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/infoexchangerproject/binaries/lib  infoexchangerproject/binaries/lib/libimemorysupplier.so
+  OBJECT_DIR = buffermanager/CMakeFiles/buffermanager.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libbuffermanager.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = infoexchangerproject/binaries/lib/libbuffermanager.so
+  TARGET_PDB = buffermanager.so.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target buffermanager_t
+
+
+#############################################
+# Order-only phony target for buffermanager_t
+
+build cmake_object_order_depends_target_buffermanager_t: phony || buffermanager/buffermanager_tconf cmake_object_order_depends_target_buffermanager cmake_object_order_depends_target_gtest cmake_object_order_depends_target_imemorysupplier
+
+build buffermanager/CMakeFiles/buffermanager_t.dir/test/buffermanager_test.cpp.o: CXX_COMPILER__buffermanager_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/buffermanager/test/buffermanager_test.cpp || cmake_object_order_depends_target_buffermanager_t
+  DEP_FILE = buffermanager/CMakeFiles/buffermanager_t.dir/test/buffermanager_test.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/buffermanager/include -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include
+  OBJECT_DIR = buffermanager/CMakeFiles/buffermanager_t.dir
+  OBJECT_FILE_DIR = buffermanager/CMakeFiles/buffermanager_t.dir/test
+
+build buffermanager/CMakeFiles/buffermanager_t.dir/test/main.cpp.o: CXX_COMPILER__buffermanager_t_unscanned_Debug /home/andreytas/work/development/projects/infoexchanger/buffermanager/test/main.cpp || cmake_object_order_depends_target_buffermanager_t
+  DEP_FILE = buffermanager/CMakeFiles/buffermanager_t.dir/test/main.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/buffermanager -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gtest/include -I/home/andreytas/work/development/projects/infoexchanger/googletests/gtest/gmock/include -I/home/andreytas/work/development/projects/infoexchanger/buffermanager/include -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier -I/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include
+  OBJECT_DIR = buffermanager/CMakeFiles/buffermanager_t.dir
+  OBJECT_FILE_DIR = buffermanager/CMakeFiles/buffermanager_t.dir/test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target buffermanager_t
+
+
+#############################################
+# Link the executable buffermanager/buffermanager_t
+
+build buffermanager/buffermanager_t: CXX_EXECUTABLE_LINKER__buffermanager_t_Debug buffermanager/CMakeFiles/buffermanager_t.dir/test/buffermanager_test.cpp.o buffermanager/CMakeFiles/buffermanager_t.dir/test/main.cpp.o | infoexchangerproject/binaries/lib/libgtest.so infoexchangerproject/binaries/lib/libbuffermanager.so infoexchangerproject/binaries/lib/libimemorysupplier.so || buffermanager/buffermanager_tconf infoexchangerproject/binaries/lib/libbuffermanager.so infoexchangerproject/binaries/lib/libgtest.so infoexchangerproject/binaries/lib/libimemorysupplier.so
+  FLAGS = -g
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = -Wl,-rpath,/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/infoexchangerproject/binaries/lib  infoexchangerproject/binaries/lib/libgtest.so  infoexchangerproject/binaries/lib/libbuffermanager.so  infoexchangerproject/binaries/lib/libimemorysupplier.so
+  OBJECT_DIR = buffermanager/CMakeFiles/buffermanager_t.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = buffermanager/buffermanager_t
+  TARGET_PDB = buffermanager_t.dbg
+
+
+#############################################
+# Utility command for buffermanager_tconf
+
+build buffermanager/buffermanager_tconf: phony
+
+
+#############################################
+# Utility command for test
+
+build buffermanager/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager && /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build buffermanager/test: phony buffermanager/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build buffermanager/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager && /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build buffermanager/edit_cache: phony buffermanager/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build buffermanager/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager && /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/andreytas/work/development/projects/infoexchanger -B/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build buffermanager/rebuild_cache: phony buffermanager/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build buffermanager: phony infoexchangerproject/binaries/lib/libbuffermanager.so
+
+build buffermanager_t: phony buffermanager/buffermanager_t
+
+build buffermanager_tconf: phony buffermanager/buffermanager_tconf
 
 build datasource: phony infoexchangerproject/binaries/lib/libdatasource.so
 
@@ -814,6 +943,8 @@ build imemorysupplier_t: phony memorysupplier/imemorysupplier/imemorysupplier_t
 build imemorysupplier_tconf: phony memorysupplier/imemorysupplier/imemorysupplier_tconf
 
 build infoexchangerproject: phony infoexchangerproject/binaries/infoexchangerproject
+
+build libbuffermanager.so: phony infoexchangerproject/binaries/lib/libbuffermanager.so
 
 build libdatasource.so: phony infoexchangerproject/binaries/lib/libdatasource.so
 
@@ -849,7 +980,14 @@ build processing_tconf: phony common/processing/processing_tconf
 #############################################
 # Folder: /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger
 
-build all: phony infoexchangerproject/binaries/infoexchangerproject googletests/all common/mylist/all common/msg/all common/processing/all datasource/all memorysupplier/imemorysupplier/all
+build all: phony infoexchangerproject/binaries/infoexchangerproject googletests/all common/mylist/all common/msg/all common/processing/all datasource/all memorysupplier/imemorysupplier/all buffermanager/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager
+
+build buffermanager/all: phony infoexchangerproject/binaries/lib/libbuffermanager.so buffermanager/buffermanager_t
 
 # =============================================================================
 
@@ -907,14 +1045,14 @@ build memorysupplier/imemorysupplier/all: phony infoexchangerproject/binaries/li
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-Initialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /home/andreytas/work/development/projects/infoexchanger/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/msg/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/msg/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/msg/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/common/mylist/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/processing/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/datasource/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/googletests/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/googletests/gtest/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/unittest.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-Initialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /home/andreytas/work/development/projects/infoexchanger/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/buffermanager/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/buffermanager/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/buffermanager/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/common/msg/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/msg/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/msg/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/common/mylist/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/processing/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/datasource/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/googletests/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/googletests/gtest/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/unittest.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-Initialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /home/andreytas/work/development/projects/infoexchanger/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/msg/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/msg/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/msg/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/common/mylist/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/processing/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/datasource/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/googletests/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/googletests/gtest/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/unittest.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
+build /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-C.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU-CXX.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-GNU.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-Initialize.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux.cmake /home/andreytas/work/clion/clion-2024.3/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /home/andreytas/work/development/projects/infoexchanger/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/buffermanager/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/buffermanager/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/buffermanager/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/common/msg/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/msg/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/msg/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/common/mylist/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/common/processing/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/common/processing/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/datasource/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/datasource/unittest.cmake /home/andreytas/work/development/projects/infoexchanger/googletests/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/googletests/gtest/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/CMakeLists.txt /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/test/config/conf.cmake /home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/unittest.cmake CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
 
 
 #############################################
