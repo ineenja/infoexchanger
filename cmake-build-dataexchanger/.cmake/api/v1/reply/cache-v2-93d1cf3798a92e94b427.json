@@ -1235,7 +1235,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "general;msg;general;mylist;"
+			"value" : "general;msg;general;mylist;general;buffermanager;"
 		},
 		{
 			"name" : "datasource_SOURCE_DIR",

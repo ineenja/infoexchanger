@@ -1,8 +1,9 @@
-#ifndef IMEMORYSUPPLIER
-#define IMEMORYSUPPLIER
+#ifndef MEMMAPMEMORYSUPPLIER
+#define MEMMAPMEMORYSUPPLIER
 
 
-class IMemorySupplier {
+
+class MemMapMemorySupplier {
 
 public:
     virtual ~IMemorySupplier();
@@ -11,7 +12,7 @@ private:
     uint32_t size;
     uint8_t* start;
     uint8_t* end;
-
+    
 };
 
 

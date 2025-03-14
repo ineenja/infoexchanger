@@ -5,6 +5,7 @@
 #include "mylist/mylist.h"
 #include <chrono>
 #include <thread>
+#include "buffermanager/buffermanager.h"
 
 class MessageGenerator {
     public:

@@ -110,20 +110,20 @@
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/datasource/include"
 				},
 				{
-					"backtrace" : 7,
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier"
-				},
-				{
-					"backtrace" : 7,
-					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include"
-				},
-				{
-					"backtrace" : 3,
+					"backtrace" : 2,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/buffermanager"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 2,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/buffermanager/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include"
 				}
 			],
 			"language" : "CXX",
@@ -160,11 +160,11 @@
 			"id" : "datasource::@cd6f0eaedae6797a6a9c"
 		},
 		{
-			"backtrace" : 7,
+			"backtrace" : 2,
 			"id" : "imemorysupplier::@a2a95ccce79bc90d0f24"
 		},
 		{
-			"backtrace" : 3,
+			"backtrace" : 2,
 			"id" : "buffermanager::@5fc1cc6c70802e1156cc"
 		}
 	],
