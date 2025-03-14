@@ -288,6 +288,18 @@ infoexchangerproject_IS_TOP_LEVEL:STATIC=ON
 infoexchangerproject_SOURCE_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger
 
 //Value Computed by CMake
+memmapmemorysupplier_BINARY_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/memmapmemorysupplier
+
+//Value Computed by CMake
+memmapmemorysupplier_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+memmapmemorysupplier_LIB_DEPENDS:STATIC=general;imemorysupplier;
+
+//Value Computed by CMake
+memmapmemorysupplier_SOURCE_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/memorysupplier/memmapmemorysupplier
+
+//Value Computed by CMake
 msg_BINARY_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/common/msg
 
 //Value Computed by CMake
@@ -316,6 +328,18 @@ processing_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 processing_SOURCE_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/common/processing
+
+//Value Computed by CMake
+sharedmemmemorysupplier_BINARY_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/sharedmemmemorysupplier
+
+//Value Computed by CMake
+sharedmemmemorysupplier_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+sharedmemmemorysupplier_LIB_DEPENDS:STATIC=general;imemorysupplier;
+
+//Value Computed by CMake
+sharedmemmemorysupplier_SOURCE_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier
 
 //Value Computed by CMake
 unittest_BINARY_DIR:STATIC=/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/googletests
@@ -427,7 +451,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

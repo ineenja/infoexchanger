@@ -763,7 +763,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "9"
+			"value" : "11"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1442,6 +1442,54 @@
 			"value" : "/home/andreytas/work/development/projects/infoexchanger"
 		},
 		{
+			"name" : "memmapmemorysupplier_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/memmapmemorysupplier"
+		},
+		{
+			"name" : "memmapmemorysupplier_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "memmapmemorysupplier_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;imemorysupplier;"
+		},
+		{
+			"name" : "memmapmemorysupplier_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/memmapmemorysupplier"
+		},
+		{
 			"name" : "msg_BINARY_DIR",
 			"properties" : 
 			[
@@ -1560,6 +1608,54 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
+		},
+		{
+			"name" : "sharedmemmemorysupplier_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/sharedmemmemorysupplier"
+		},
+		{
+			"name" : "sharedmemmemorysupplier_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "sharedmemmemorysupplier_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;imemorysupplier;"
+		},
+		{
+			"name" : "sharedmemmemorysupplier_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier"
 		},
 		{
 			"name" : "unittest_BINARY_DIR",

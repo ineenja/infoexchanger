@@ -43,6 +43,18 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
 				"line" : 29,
 				"parent" : 0
 			},
@@ -78,27 +90,27 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/mylist"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/mylist/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/msg/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/common/processing/include"
 				},
 				{
@@ -124,6 +136,22 @@
 				{
 					"backtrace" : 2,
 					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/imemorysupplier/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/memmapmemorysupplier"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/memmapmemorysupplier/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/andreytas/work/development/projects/infoexchanger/memorysupplier/sharedmemmemorysupplier/include"
 				}
 			],
 			"language" : "CXX",
@@ -144,15 +172,15 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 4,
+			"backtrace" : 6,
 			"id" : "mylist::@a958939555f4b85ba85d"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 7,
 			"id" : "msg::@0a87d6f3b5bdbe21879c"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 7,
 			"id" : "processing::@6dee88bf54cc123f75a0"
 		},
 		{
@@ -162,6 +190,14 @@
 		{
 			"backtrace" : 2,
 			"id" : "imemorysupplier::@a2a95ccce79bc90d0f24"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "memmapmemorysupplier::@12fd411dda0dc7607c38"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "sharedmemmemorysupplier::@e25a42dcbb04740a9a94"
 		},
 		{
 			"backtrace" : 2,
@@ -192,26 +228,36 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "infoexchangerproject/binaries/lib/libbuffermanager.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libmemmapmemorysupplier.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "infoexchangerproject/binaries/lib/libmylist.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libsharedmemmemorysupplier.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libbuffermanager.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
+				"fragment" : "infoexchangerproject/binaries/lib/libmylist.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 7,
+				"fragment" : "infoexchangerproject/binaries/lib/libmsg.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "infoexchangerproject/binaries/lib/libprocessing.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
 				"fragment" : "infoexchangerproject/binaries/lib/libimemorysupplier.so",
 				"role" : "libraries"
 			}

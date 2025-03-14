@@ -1,9 +1,9 @@
-#ifndef MEMMAPMEMORYSUPPLIER
-#define MEMMAPMEMORYSUPPLIER
+#ifndef SHAREDMEMMEMORYSUPPLIER
+#define SHAREDMEMMEMORYSUPPLIER
 
 #include "imemorysupplier/imemorysupplier.h"
 
-class MemMapMemorySupplier : public IMemorySupplier {
+class SharedMemMemorySupplier : public IMemorySupplier {
 
 public:
     void locateMemory(uint32_t size) override {

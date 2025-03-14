@@ -14,7 +14,9 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9,
+						10
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -70,7 +72,7 @@
 					"source" : "common/mylist",
 					"targetIndexes" : 
 					[
-						14
+						17
 					]
 				},
 				{
@@ -85,9 +87,9 @@
 					"source" : "common/msg",
 					"targetIndexes" : 
 					[
-						11,
-						12,
-						13
+						14,
+						15,
+						16
 					]
 				},
 				{
@@ -102,9 +104,9 @@
 					"source" : "common/processing",
 					"targetIndexes" : 
 					[
-						15,
-						16,
-						17
+						18,
+						19,
+						20
 					]
 				},
 				{
@@ -142,6 +144,40 @@
 					]
 				},
 				{
+					"build" : "memorysupplier/memmapmemorysupplier",
+					"jsonFile" : "directory-memorysupplier.memmapmemorysupplier-Debug-216d63fbefba58e9f33f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 8,
+					"source" : "memorysupplier/memmapmemorysupplier",
+					"targetIndexes" : 
+					[
+						11,
+						12,
+						13
+					]
+				},
+				{
+					"build" : "memorysupplier/sharedmemmemorysupplier",
+					"jsonFile" : "directory-memorysupplier.sharedmemmemorysupplier-Debug-b6195e72fd62b72aab5f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 9,
+					"source" : "memorysupplier/sharedmemmemorysupplier",
+					"targetIndexes" : 
+					[
+						21,
+						22,
+						23
+					]
+				},
+				{
 					"build" : "buffermanager",
 					"jsonFile" : "directory-buffermanager-Debug-c5bd86f28b9ad8837f10.json",
 					"minimumCMakeVersion" : 
@@ -149,7 +185,7 @@
 						"string" : "3.0"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 8,
+					"projectIndex" : 10,
 					"source" : "buffermanager",
 					"targetIndexes" : 
 					[
@@ -171,7 +207,9 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9,
+						10
 					],
 					"directoryIndexes" : 
 					[
@@ -216,7 +254,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						14
+						17
 					]
 				},
 				{
@@ -228,9 +266,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						11,
-						12,
-						13
+						14,
+						15,
+						16
 					]
 				},
 				{
@@ -242,9 +280,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						15,
-						16,
-						17
+						18,
+						19,
+						20
 					]
 				},
 				{
@@ -280,6 +318,34 @@
 					[
 						8
 					],
+					"name" : "memmapmemorysupplier",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11,
+						12,
+						13
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						9
+					],
+					"name" : "sharedmemmemorysupplier",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						21,
+						22,
+						23
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						10
+					],
 					"name" : "buffermanager",
 					"parentIndex" : 0,
 					"targetIndexes" : 
@@ -293,25 +359,25 @@
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 8,
+					"directoryIndex" : 10,
 					"id" : "buffermanager::@5fc1cc6c70802e1156cc",
 					"jsonFile" : "target-buffermanager-Debug-33bb2b40f6989d1c6638.json",
 					"name" : "buffermanager",
-					"projectIndex" : 8
+					"projectIndex" : 10
 				},
 				{
-					"directoryIndex" : 8,
+					"directoryIndex" : 10,
 					"id" : "buffermanager_t::@5fc1cc6c70802e1156cc",
 					"jsonFile" : "target-buffermanager_t-Debug-e3201ec885515207e26b.json",
 					"name" : "buffermanager_t",
-					"projectIndex" : 8
+					"projectIndex" : 10
 				},
 				{
-					"directoryIndex" : 8,
+					"directoryIndex" : 10,
 					"id" : "buffermanager_tconf::@5fc1cc6c70802e1156cc",
 					"jsonFile" : "target-buffermanager_tconf-Debug-caa29d12ffea39ee60ef.json",
 					"name" : "buffermanager_tconf",
-					"projectIndex" : 8
+					"projectIndex" : 10
 				},
 				{
 					"directoryIndex" : 6,
@@ -365,9 +431,30 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "infoexchangerproject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-infoexchangerproject-Debug-18007c2329819dbc81b3.json",
+					"jsonFile" : "target-infoexchangerproject-Debug-c2edd53687a52d91bd47.json",
 					"name" : "infoexchangerproject",
 					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "memmapmemorysupplier::@12fd411dda0dc7607c38",
+					"jsonFile" : "target-memmapmemorysupplier-Debug-c9b46c21d522e5a5b356.json",
+					"name" : "memmapmemorysupplier",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "memmapmemorysupplier_t::@12fd411dda0dc7607c38",
+					"jsonFile" : "target-memmapmemorysupplier_t-Debug-b92307de349db71ffa70.json",
+					"name" : "memmapmemorysupplier_t",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "memmapmemorysupplier_tconf::@12fd411dda0dc7607c38",
+					"jsonFile" : "target-memmapmemorysupplier_tconf-Debug-c1175e4e33c9c93f5a4d.json",
+					"name" : "memmapmemorysupplier_tconf",
+					"projectIndex" : 8
 				},
 				{
 					"directoryIndex" : 4,
@@ -417,6 +504,27 @@
 					"jsonFile" : "target-processing_tconf-Debug-9c1fc2107e48db19c252.json",
 					"name" : "processing_tconf",
 					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "sharedmemmemorysupplier::@e25a42dcbb04740a9a94",
+					"jsonFile" : "target-sharedmemmemorysupplier-Debug-1c176c3082143560f646.json",
+					"name" : "sharedmemmemorysupplier",
+					"projectIndex" : 9
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "sharedmemmemorysupplier_t::@e25a42dcbb04740a9a94",
+					"jsonFile" : "target-sharedmemmemorysupplier_t-Debug-eef8d16684bad310d0c0.json",
+					"name" : "sharedmemmemorysupplier_t",
+					"projectIndex" : 9
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "sharedmemmemorysupplier_tconf::@e25a42dcbb04740a9a94",
+					"jsonFile" : "target-sharedmemmemorysupplier_tconf-Debug-1ae873510eb2dee10889.json",
+					"name" : "sharedmemmemorysupplier_tconf",
+					"projectIndex" : 9
 				}
 			]
 		}
