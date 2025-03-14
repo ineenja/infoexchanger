@@ -72,10 +72,11 @@ class MessageGenerator {
 class MessageTransferer {
     public:
     MessageTransferer(std::chrono::milliseconds interval, MyList<Message>* messageQueuePointer, uint8_t* sharedMemoryPtr, uint32_t sharedMemorySize, uint8_t sharedMemorySlotSize)
-        : interval_(interval), lastPullingTime_(std::chrono::steady_clock::now()), messagesQueuePointer(messageQueuePointer),
-    sharedMemoryPtr(sharedMemoryPtr), sharedMemorySize(sharedMemorySize), sharedMemorySlotSize(sharedMemorySlotSize) {};
+        : interval_(interval), lastPullingTime_(std::chrono::steady_clock::now()), messagesQueuePointer(messageQueuePointer), currentSharedMemoryPtr(sharedMemoryPtr),
+    sharedMemoryStart(sharedMemoryPtr), sharedMemoryEnd(sharedMemoryPtr + sharedMemorySize), sharedMemorySlotSize(sharedMemorySlotSize) {};
 
     bool tryPullMsg() {
+
         if (std::chrono::steady_clock::now() - lastPullingTime_ >= interval_) { // проверяет, прошел ли интервал c момента последнего вытаскивания сообщения
             lastPullingTime_ = std::chrono::steady_clock::now(); // обновляем переменную хранящую время последнего вытаскивания сообщения
 
@@ -84,13 +85,12 @@ class MessageTransferer {
                 tempMessageSequenced = divideMessageIntoBytes(messagesQueuePointer->front()); // секвентируем первое сообщение в очереди, записывая во временный вектор байт
                 messagesQueuePointer->popFront(); // удаляем его из очереди
 
-                if (sharedMemoryPtr + sharedMemorySize > sharedMemoryPtr + sharedMemorySlotSize){ // чтобы предотвратить ошибку сегментации (VALGRIND MEMCHECK INVALID WRITE)
-                    memcpy(sharedMemoryPtr, tempMessageSequenced.data(), tempMessageSequenced.size()); // загружаем в общую память байты сообщения
-                    sharedMemoryPtr += sharedMemorySlotSize;
-                } else {
-                    std::cout << "memory leak prevented, msg not pulled" << std::endl;
-                    return false;
+                if (sharedMemoryEnd <= currentSharedMemoryPtr){ // чтобы предотвратить ошибку сегментации (VALGRIND MEMCHECK INVALID WRITE)
+                    currentSharedMemoryPtr = sharedMemoryStart; // когда достигли конца выделенной памяти, возвращаемся на начало
+                    std::cout << "reached memory end, returning ptr to the start position" << std::endl;
                 }
+                    memcpy(currentSharedMemoryPtr, tempMessageSequenced.data(), tempMessageSequenced.size()); // загружаем в общую память байты сообщения
+                    currentSharedMemoryPtr += sharedMemorySlotSize;
             } else {
                 std::cout << "queue is empty rn" << std::endl;
                 return false;
@@ -107,8 +107,9 @@ class MessageTransferer {
     std::chrono::steady_clock::time_point lastPullingTime_;
     MyList<Message>* messagesQueuePointer; // указатель на очередь
 
-    uint8_t* sharedMemoryPtr;
-    uint32_t sharedMemorySize;
+    uint8_t* currentSharedMemoryPtr;
+    uint8_t* sharedMemoryStart;
+    uint8_t* sharedMemoryEnd;
     uint8_t sharedMemorySlotSize;
 };
 
