@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <datasource/datasource.h>
+#include <buffermanager/buffermanager.h>
 
 ///// тест создания одного и того же сообщения раз в интервал
 TEST(DataSourceTests, MessageCreationCheckWithTimer) {
@@ -217,14 +218,6 @@ TEST(DataSourceTests, SingleMessagesMovingCheck) {
         EXPECT_EQ(checkData1[i++], value);
     }
 
-    // sharedMemoryPtr = sharedMemoryPtr + sharedMemorySlotSize;
-    // Message checkData2Msg = turnBytesIntoMessage(sharedMemoryPtr);
-    // auto checkData2 = any_cast<std::vector<int>>(getDataFromBytes(checkData2Msg.getPayload(), checkData2Msg.getMessageType()));
-    // i = 0;
-    // for (const double value : testData2) {
-    //     EXPECT_EQ(checkData2[i++], value);
-    // }
-
     delete [] sharedMemoryPtr;
     std::cout << std::endl;
 }
@@ -402,6 +395,64 @@ TEST(DataSourceTests, ManyMessagesMovingCheckWithLimitedSlots) {
 
     std::cout << std::endl;
 }
+
+TEST(DataSourceTests, SharedMemoryMsgReadAndWriteTest) {
+    const std::string shmName = "MySharedMemory";
+    const size_t shmSize = 1024;
+    const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
+
+    // Создаем менеджер буферов
+    BufferManager bufferManager(shmName, shmSize, pocketSize);
+
+    // создаем набор сообщений
+    std::vector<double> testData1 = {1,2,3,4,5};
+    std::vector<int> testData2 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+    double testData3 = 4124;
+    int testData4 = 41421;
+    std::string testData5 = "dollbyopp";
+
+    void* arr[5];
+    arr[0] = &testData1;
+    arr[1] = &testData2;
+    arr[2] = &testData3;
+    arr[3] = &testData4;
+    arr[4] = &testData5;
+
+    MyList<Message> MessagesQueue;
+
+    // закидываем сообщения в очередь
+    MessageGenerator TestMsgCreator = MessageGenerator(std::chrono::milliseconds(500), &MessagesQueue);
+
+    auto StartTime = std::chrono::steady_clock::now();
+    std::chrono::milliseconds duration(3000);
+
+    while (true) {
+        auto CurrentTime = std::chrono::steady_clock::now();
+        if (CurrentTime - StartTime >= duration) {
+            break;
+        }
+        bool msgWasCreated = TestMsgCreator.newMsg(arr[MessagesQueue.getSize()], MessagesQueue.getSize()+1);
+        if (msgWasCreated == true){
+            std::cout << "msg was created" << std::endl;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    while (true) {
+        auto CurrentTime = std::chrono::steady_clock::now();
+        if (CurrentTime - StartTime >= duration) {
+            break;
+        }
+        bool msgWasPulled = TestMsgTransferer.tryPullMsg();
+        if (msgWasPulled == true){
+            std::cout << "msg was pulled" << std::endl;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+}
+
 
 
 

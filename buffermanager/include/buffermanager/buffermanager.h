@@ -41,42 +41,26 @@ public:
         std::vector<uint8_t> buffer(pocketDataSize + pocketHeaderSize);
         std::memcpy(buffer.data(), static_cast<uint8_t*>(mem) + pocketSize * position, (pocketSize)*sizeof(uint8_t));
 
-        // if (buffer[0] == 228) {
-        //     for (size_t i = 0; i < pocketDataSize; i++) {
-        //         dataFromPockets.push_back(buffer[i + pocketHeaderSize]);
-        //     }
-        // } else {
-        //     throw std::out_of_range("Invalid read operation - no message on this position");
-        // }
         bool keepReadingAMessage = true;
         uint8_t currentMessageID = buffer[1];
         uint8_t currentMessagePocketsNumber = buffer[3];
 
         while (keepReadingAMessage) {
-            std::cout << "starting reading a message" << std::endl;
             if (buffer[0] == 228 or buffer[2] == 1) { // проверка, является ли выгруженное пакетом, и первый ли это пакет из сообщения
-                std::cout << "looks like this pocket is OK" << std::endl;
                 if (buffer[2] <= currentMessagePocketsNumber and buffer[1] == currentMessageID) { // проверка, не перескочили ли мы на следующее сообщение в памяти
-                    std::cout << "starting to read pocket #" << static_cast<int>(buffer[2]) << " from " << static_cast<int>(buffer[3]) << " of msg " << static_cast<int>(buffer[1]) << std::endl;
                     for (size_t i = 0; i < buffer[4]; ++i) { // копируем байты информации из текущего пакета в формируемое сообщение на выход
-                        std::cout << "currently reading byte #" << i+1 << " from " << static_cast<int>(buffer[4]) << " which holds value = "<< static_cast<int>(buffer[i + pocketHeaderSize]) << std::endl;
                         dataFromPockets.push_back(buffer[i + pocketHeaderSize]);
                     }
-                    std::cout << "done reading pocket #" << static_cast<int>(buffer[2]) << " from " << static_cast<int>(buffer[3]) << " of msg " << static_cast<int>(buffer[1]) << std::endl;
                     position++; // переходим на следующий пакет
                     if (pocketSize * position < memorySupply.getSize()) { // проверка, не выйдем ли мы за пределы памяти на след. пакете
                         std::memcpy(buffer.data(), static_cast<uint8_t*>(mem) + pocketSize * position, pocketSize*sizeof(uint8_t));
-                        std::cout << "copied next pocket" << std::endl;
                     } else {
-                        std::cout << "reached shared memo end here!" << pocketSize * position << " > " << memorySupply.getSize() << std::endl;
                         keepReadingAMessage = false;
                     }
                 } else {
-                    std::cout << "looks like current message is over" << std::endl;
                     keepReadingAMessage = false;
                 }
             } else {
-                std::cout << "wrong ass position" << std::endl;
                 keepReadingAMessage = false; // если это не пакет или это не первый пакет из сообщения то читать не продолжаем
             }
             std::cout << std::endl;

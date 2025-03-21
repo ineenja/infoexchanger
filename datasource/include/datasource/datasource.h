@@ -86,12 +86,7 @@ class MessageTransferer {
                 tempMessageSequenced = divideMessageIntoBytes(messagesQueuePointer->front()); // секвентируем первое сообщение в очереди, записывая во временный вектор байт
                 messagesQueuePointer->popFront(); // удаляем его из очереди
 
-                if (sharedMemoryEnd <= currentSharedMemoryPtr){ // чтобы предотвратить ошибку сегментации (VALGRIND MEMCHECK INVALID WRITE)
-                    currentSharedMemoryPtr = sharedMemoryStart; // когда достигли конца выделенной памяти, возвращаемся на начало
-                    std::cout << "reached memory end, returning ptr to the start position" << std::endl;
-                }
-                    memcpy(currentSharedMemoryPtr, tempMessageSequenced.data(), tempMessageSequenced.size()); // загружаем в общую память байты сообщения
-                    currentSharedMemoryPtr += sharedMemorySlotSize;
+
             } else {
                 std::cout << "queue is empty rn" << std::endl;
                 return false;
