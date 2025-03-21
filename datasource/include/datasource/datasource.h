@@ -86,7 +86,12 @@ class MessageTransferer {
                 tempMessageSequenced = divideMessageIntoBytes(messagesQueuePointer->front()); // секвентируем первое сообщение в очереди, записывая во временный вектор байт
                 messagesQueuePointer->popFront(); // удаляем его из очереди
 
-
+                if (sharedMemoryEnd <= currentSharedMemoryPtr){ // чтобы предотвратить ошибку сегментации (VALGRIND MEMCHECK INVALID WRITE)
+                    currentSharedMemoryPtr = sharedMemoryStart; // когда достигли конца выделенной памяти, возвращаемся на начало
+                    std::cout << "reached memory end, returning ptr to the start position" << std::endl;
+                }
+                    memcpy(currentSharedMemoryPtr, tempMessageSequenced.data(), tempMessageSequenced.size()); // загружаем в общую память байты сообщения
+                    currentSharedMemoryPtr += sharedMemorySlotSize;
             } else {
                 std::cout << "queue is empty rn" << std::endl;
                 return false;
@@ -107,6 +112,48 @@ class MessageTransferer {
     uint8_t* sharedMemoryStart;
     uint8_t* sharedMemoryEnd;
     uint8_t sharedMemorySlotSize;
+};
+
+class MessageTransfererToSharedMemory {
+    public:
+    MessageTransfererToSharedMemory(SharedMemMemorySupplier* sharedMemoPtr, size_t pocketSize, std::chrono::milliseconds interval_, MyList<Message>* messagesQueuePointer) :
+    bufferManager(sharedMemoPtr, pocketSize), pocketSize(pocketSize), sharedMemoPtr(sharedMemoPtr), interval_(interval_), messagesQueuePointer(messagesQueuePointer) {
+        currentPosition = 0;
+    };
+
+    bool tryPullMsg() {
+        if (std::chrono::steady_clock::now() - lastPullingTime_ >= interval_) { // проверяет, прошел ли интервал c момента последнего вытаскивания сообщения
+            lastPullingTime_ = std::chrono::steady_clock::now(); // обновляем переменную хранящую время последнего вытаскивания сообщения
+
+            std::vector<uint8_t> tempMessageSequenced;
+            if (messagesQueuePointer->getSize() > 0) {
+                tempMessageSequenced = divideMessageIntoBytes(messagesQueuePointer->front()); // секвентируем первое сообщение в очереди, записывая во временный вектор байт
+                messagesQueuePointer->popFront(); // удаляем его из очереди
+
+                bufferManager.writePocket(tempMessageSequenced, currentPosition);
+                std::cout << "msg pulled to pos " << currentPosition << std::endl;
+
+                currentPosition = (uint8_t)ceil((double)tempMessageSequenced.size() / (double)pocketSize) + currentPosition;
+            } else {
+                std::cout << "queue is empty rn" << std::endl;
+                return false;
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private:
+    std::chrono::milliseconds interval_;
+    std::chrono::steady_clock::time_point lastPullingTime_;
+    MyList<Message>* messagesQueuePointer; // указатель на очередь
+
+    SharedMemMemorySupplier* sharedMemoPtr;
+    BufferManager bufferManager;
+    size_t currentPosition;
+    size_t pocketSize;
 };
 
 #endif

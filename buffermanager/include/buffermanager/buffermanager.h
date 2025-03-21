@@ -9,22 +9,22 @@ namespace Bip = boost::interprocess;
 
 class BufferManager {
 public:
-    BufferManager(const std::string& shmName, size_t shmSize, size_t pocketDataSize)
-        : memorySupply(shmName, shmSize), mutex(Bip::open_or_create, "mtx"), pocketDataSize(pocketDataSize) {
+    BufferManager(SharedMemMemorySupplier* sharedMemoPtr, size_t pocketDataSize)
+        : memorySupply(sharedMemoPtr), mutex(Bip::open_or_create, "mtx"), pocketDataSize(pocketDataSize) {
         idPocket = 0;
         pocketHeaderSize = 5;
         pocketSize = pocketDataSize + pocketHeaderSize;
     }
 
     void writePocket(const std::vector<uint8_t>& data, size_t position) {
-        if (pocketDataSize * position + data.size() > memorySupply.getSize()) {
+        if (pocketDataSize * position + data.size() > memorySupply->getSize()) {
             throw std::out_of_range("Write operation exceeds shared memory size");
         }
         //Bip::scoped_lock<Bip::named_mutex> lock(mutex);
 
         std::vector<std::vector<uint8_t>> pocketsBuffer = createPockets(data);
 
-        void* mem = memorySupply.getMemory();
+        void* mem = memorySupply->getMemory();
         for (std::vector<uint8_t> pocket: pocketsBuffer) {
             std::memcpy(static_cast<uint8_t*>(mem) + pocketSize * position, pocket.data(), (pocketSize)*sizeof(uint8_t));
             position++;
@@ -36,7 +36,7 @@ public:
         //Bip::scoped_lock<Bip::named_mutex> lock(mutex);
         std::vector<uint8_t> dataFromPockets;
 
-        void* mem = memorySupply.getMemory();
+        void* mem = memorySupply->getMemory();
 
         std::vector<uint8_t> buffer(pocketDataSize + pocketHeaderSize);
         std::memcpy(buffer.data(), static_cast<uint8_t*>(mem) + pocketSize * position, (pocketSize)*sizeof(uint8_t));
@@ -52,7 +52,7 @@ public:
                         dataFromPockets.push_back(buffer[i + pocketHeaderSize]);
                     }
                     position++; // переходим на следующий пакет
-                    if (pocketSize * position < memorySupply.getSize()) { // проверка, не выйдем ли мы за пределы памяти на след. пакете
+                    if (pocketSize * position < memorySupply->getSize()) { // проверка, не выйдем ли мы за пределы памяти на след. пакете
                         std::memcpy(buffer.data(), static_cast<uint8_t*>(mem) + pocketSize * position, pocketSize*sizeof(uint8_t));
                     } else {
                         keepReadingAMessage = false;
@@ -63,7 +63,6 @@ public:
             } else {
                 keepReadingAMessage = false; // если это не пакет или это не первый пакет из сообщения то читать не продолжаем
             }
-            std::cout << std::endl;
         }
 
         return dataFromPockets;
@@ -101,7 +100,7 @@ public:
 private:
     uint8_t idPocket;
 
-    SharedMemMemorySupplier memorySupply;
+    SharedMemMemorySupplier* memorySupply;
     Bip::named_mutex mutex;
     size_t pocketDataSize;
     size_t pocketHeaderSize;

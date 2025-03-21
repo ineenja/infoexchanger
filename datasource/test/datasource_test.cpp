@@ -396,13 +396,7 @@ TEST(DataSourceTests, ManyMessagesMovingCheckWithLimitedSlots) {
     std::cout << std::endl;
 }
 
-TEST(DataSourceTests, SharedMemoryMsgReadAndWriteTest) {
-    const std::string shmName = "MySharedMemory";
-    const size_t shmSize = 1024;
-    const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
-
-    // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+TEST(DataSourceTests, SharedMemoryMsgWriteAndReadTest) {
 
     // создаем набор сообщений
     std::vector<double> testData1 = {1,2,3,4,5};
@@ -439,18 +433,68 @@ TEST(DataSourceTests, SharedMemoryMsgReadAndWriteTest) {
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 
+    const std::string shmName = "MySharedMemory";
+    const size_t shmSize = 1024;
+    const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
+
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
+    MessageTransfererToSharedMemory msgTransfererToSharedMemo(sharedMemoPtr, pocketSize, std::chrono::milliseconds(500), &MessagesQueue);
+    StartTime = std::chrono::steady_clock::now();
+
     while (true) {
         auto CurrentTime = std::chrono::steady_clock::now();
         if (CurrentTime - StartTime >= duration) {
             break;
         }
-        bool msgWasPulled = TestMsgTransferer.tryPullMsg();
-        if (msgWasPulled == true){
-            std::cout << "msg was pulled" << std::endl;
-        }
+        bool msgWasPulled = msgTransfererToSharedMemo.tryPullMsg();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
+    std::cout << "pulling dne, starting to read" << std::endl;
+
+    // Создаем менеджер буферов
+    BufferManager bufferManagerReading(sharedMemoPtr, pocketSize);
+
+    std::vector<uint8_t> readData1 = bufferManagerReading.readPocket(0);
+    std::vector<uint8_t> readData2 = bufferManagerReading.readPocket(6);
+    std::vector<uint8_t> readData3 = bufferManagerReading.readPocket(14);
+    std::vector<uint8_t> readData4 = bufferManagerReading.readPocket(17);
+    std::vector<uint8_t> readData5 = bufferManagerReading.readPocket(19);
+
+    std::cout << "read all msgs" << std::endl;
+
+    Message checkData1Msg = turnBytesIntoMessage(readData1.data());
+    auto checkData1 = any_cast<std::vector<double>>(getDataFromBytes(checkData1Msg.getPayload(), checkData1Msg.getMessageType()));
+    int i = 0;
+    for (const double value : testData1) {
+        EXPECT_EQ(checkData1[i++], value);
+    }
+    std::cout << "first msg is OK" << std::endl;
+
+    Message checkData2Msg = turnBytesIntoMessage(readData2.data());
+    auto checkData2 = any_cast<std::vector<int>>(getDataFromBytes(checkData2Msg.getPayload(), checkData2Msg.getMessageType()));
+    i = 0;
+    for (const double value : testData2) {
+        EXPECT_EQ(checkData2[i++], value);
+    }
+    std::cout << "second msg is OK" << std::endl;
+
+    Message checkData3Msg = turnBytesIntoMessage(readData3.data());
+    auto checkData3 = any_cast<double>(getDataFromBytes(checkData3Msg.getPayload(), checkData3Msg.getMessageType()));
+    EXPECT_EQ(checkData3, testData3);
+    std::cout << "third msg is OK" << std::endl;
+
+    Message checkData4Msg = turnBytesIntoMessage(readData4.data());
+    auto checkData4 = any_cast<int>(getDataFromBytes(checkData4Msg.getPayload(), checkData4Msg.getMessageType()));
+    EXPECT_EQ(checkData4, testData4);
+    std::cout << "fourth msg is OK" << std::endl;
+
+    Message checkData5Msg = turnBytesIntoMessage(readData5.data());
+    auto checkData5 = any_cast<std::string>(getDataFromBytes(checkData5Msg.getPayload(), checkData5Msg.getMessageType()));
+    EXPECT_EQ(checkData5, testData5);
+    std::cout << "fifth msg is OK" << std::endl;
 }
 
 

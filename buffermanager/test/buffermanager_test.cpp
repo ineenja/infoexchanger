@@ -6,8 +6,11 @@ TEST(BufferManagerTests, BufferManagerPocketsCreationTest) {
     const size_t shmSize = 1024;
     const size_t pocketSize = 10;
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     std::vector<uint8_t> dataToWrite = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
 
@@ -21,8 +24,11 @@ TEST(BufferManagerTests, BufferManagerPocketsHeaderTest) {
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     std::vector<uint8_t> dataToWrite = {11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
 
@@ -54,8 +60,11 @@ TEST(BufferManagerTests, BufferManagerReadWriteOnePocketOneMsgTest) {
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite = {1,2,3,4,5};
@@ -77,8 +86,11 @@ TEST(BufferManagerTests, BufferManagerReadWriteManyPocketsOneMsgTest) {
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
@@ -99,8 +111,11 @@ TEST(BufferManagerTests, BufferManagerReadWriteOnePocketManyMsgsNextToEachOtherT
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite1 = {1,2,3,4,5};
@@ -132,8 +147,11 @@ TEST(BufferManagerTests, BufferManagerReadWriteOnePocketManyMsgsSplitApartTest) 
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite1 = {1,2,3,4,5};
@@ -165,8 +183,11 @@ TEST(BufferManagerTests, BufferManagerReadWriteManyPocketsManyMsgsNextToEachOthe
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite1 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
@@ -194,8 +215,11 @@ TEST(BufferManagerTests, BufferManagerReadWriteManyPocketsManyMsgsSplitApartTest
     const size_t shmSize = 1024;
     const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
+
     // Создаем менеджер буферов
-    BufferManager bufferManager(shmName, shmSize, pocketSize);
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
     // Пример записи данных в shared memory
     std::vector<uint8_t> dataToWrite1 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
