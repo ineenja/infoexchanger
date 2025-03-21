@@ -29,6 +29,7 @@ public:
             std::memcpy(static_cast<uint8_t*>(mem) + pocketSize * position, pocket.data(), (pocketSize)*sizeof(uint8_t));
             position++;
         }
+        std::cout << "new pocket was written" << std::endl;
     }
 
     std::vector<uint8_t> readPocket(size_t position) {

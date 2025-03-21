@@ -202,7 +202,7 @@ TEST(DataSourceTests, SingleMessagesMovingCheck) {
         if (CurrentTime - StartTime >= duration) {
             break;
         }
-        bool msgWasPulled = TestMsgTransferer.tryPullMsg();
+        bool msgWasPulled = TestMsgTransferer.tryPushMsg();
         if (msgWasPulled == true){
             std::cout << "msg was pulled" << std::endl;
         }
@@ -270,7 +270,7 @@ TEST(DataSourceTests, ManyMessagesMovingCheck) {
         if (CurrentTime - StartTime >= duration) {
             break;
         }
-        bool msgWasPulled = TestMsgTransferer.tryPullMsg();
+        bool msgWasPulled = TestMsgTransferer.tryPushMsg();
         if (msgWasPulled == true){
             std::cout << "msg was pulled" << std::endl;
         }
@@ -365,7 +365,7 @@ TEST(DataSourceTests, ManyMessagesMovingCheckWithLimitedSlots) {
         if (CurrentTime - StartTime >= duration) {
             break;
         }
-        bool msgWasPulled = TestMsgTransferer.tryPullMsg();
+        bool msgWasPulled = TestMsgTransferer.tryPushMsg();
         if (msgWasPulled == true){
             std::cout << "msg was pulled" << std::endl;
         }
@@ -435,12 +435,14 @@ TEST(DataSourceTests, SharedMemoryMsgWriteAndReadTest) {
 
     const std::string shmName = "MySharedMemory";
     const size_t shmSize = 1024;
-    const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
+    const size_t pocketDataSize = 10; // количество байт информации, содержащейся в одном сообщении
+    const size_t pocketHeaderSize = 5; // количество байт информации содержащейся в хедере сообщения
+    const size_t pocketSize = pocketDataSize + pocketHeaderSize;
 
     SharedMemMemorySupplier sharedMemo(shmName, shmSize);
     SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
 
-    MessageTransfererToSharedMemory msgTransfererToSharedMemo(sharedMemoPtr, pocketSize, std::chrono::milliseconds(500), &MessagesQueue);
+    MessageTransfererToSharedMemory msgTransfererToSharedMemo(sharedMemoPtr, pocketDataSize, std::chrono::milliseconds(500), &MessagesQueue);
     StartTime = std::chrono::steady_clock::now();
 
     while (true) {
@@ -448,14 +450,14 @@ TEST(DataSourceTests, SharedMemoryMsgWriteAndReadTest) {
         if (CurrentTime - StartTime >= duration) {
             break;
         }
-        bool msgWasPulled = msgTransfererToSharedMemo.tryPullMsg();
+        bool msgWasPulled = msgTransfererToSharedMemo.tryPushMsg();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
     std::cout << "pulling dne, starting to read" << std::endl;
 
     // Создаем менеджер буферов
-    BufferManager bufferManagerReading(sharedMemoPtr, pocketSize);
+    BufferManager bufferManagerReading(sharedMemoPtr, pocketDataSize);
 
     std::vector<uint8_t> readData1 = bufferManagerReading.readPocket(0);
     std::vector<uint8_t> readData2 = bufferManagerReading.readPocket(6);

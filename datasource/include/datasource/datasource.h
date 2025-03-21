@@ -76,7 +76,7 @@ class MessageTransferer {
         : interval_(interval), lastPullingTime_(std::chrono::steady_clock::now()), messagesQueuePointer(messageQueuePointer), currentSharedMemoryPtr(sharedMemoryPtr),
     sharedMemoryStart(sharedMemoryPtr), sharedMemoryEnd(sharedMemoryPtr + sharedMemorySize), sharedMemorySlotSize(sharedMemorySlotSize) {};
 
-    bool tryPullMsg() {
+    bool tryPushMsg() {
 
         if (std::chrono::steady_clock::now() - lastPullingTime_ >= interval_) { // проверяет, прошел ли интервал c момента последнего вытаскивания сообщения
             lastPullingTime_ = std::chrono::steady_clock::now(); // обновляем переменную хранящую время последнего вытаскивания сообщения
@@ -121,7 +121,7 @@ class MessageTransfererToSharedMemory {
         currentPosition = 0;
     };
 
-    bool tryPullMsg() {
+    bool tryPushMsg() {
         if (std::chrono::steady_clock::now() - lastPullingTime_ >= interval_) { // проверяет, прошел ли интервал c момента последнего вытаскивания сообщения
             lastPullingTime_ = std::chrono::steady_clock::now(); // обновляем переменную хранящую время последнего вытаскивания сообщения
 
@@ -131,7 +131,7 @@ class MessageTransfererToSharedMemory {
                 messagesQueuePointer->popFront(); // удаляем его из очереди
 
                 bufferManager.writePocket(tempMessageSequenced, currentPosition);
-                std::cout << "msg pulled to pos " << currentPosition << std::endl;
+                std::cout << "msg pushed to pos " << currentPosition << std::endl;
 
                 currentPosition = (uint8_t)ceil((double)tempMessageSequenced.size() / (double)pocketSize) + currentPosition;
 
