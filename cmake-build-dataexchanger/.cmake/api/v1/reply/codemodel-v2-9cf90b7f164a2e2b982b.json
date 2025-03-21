@@ -16,7 +16,8 @@
 						7,
 						8,
 						9,
-						10
+						10,
+						11
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -27,7 +28,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						10
+						13
 					]
 				},
 				{
@@ -57,7 +58,7 @@
 					"source" : "googletests/gtest",
 					"targetIndexes" : 
 					[
-						6
+						9
 					]
 				},
 				{
@@ -72,7 +73,7 @@
 					"source" : "common/mylist",
 					"targetIndexes" : 
 					[
-						17
+						20
 					]
 				},
 				{
@@ -87,9 +88,9 @@
 					"source" : "common/msg",
 					"targetIndexes" : 
 					[
-						14,
-						15,
-						16
+						17,
+						18,
+						19
 					]
 				},
 				{
@@ -104,9 +105,9 @@
 					"source" : "common/processing",
 					"targetIndexes" : 
 					[
-						18,
-						19,
-						20
+						21,
+						22,
+						23
 					]
 				},
 				{
@@ -121,9 +122,9 @@
 					"source" : "datasource",
 					"targetIndexes" : 
 					[
-						3,
-						4,
-						5
+						6,
+						7,
+						8
 					]
 				},
 				{
@@ -138,9 +139,9 @@
 					"source" : "memorysupplier/imemorysupplier",
 					"targetIndexes" : 
 					[
-						7,
-						8,
-						9
+						10,
+						11,
+						12
 					]
 				},
 				{
@@ -155,9 +156,9 @@
 					"source" : "memorysupplier/memmapmemorysupplier",
 					"targetIndexes" : 
 					[
-						11,
-						12,
-						13
+						14,
+						15,
+						16
 					]
 				},
 				{
@@ -172,9 +173,9 @@
 					"source" : "memorysupplier/sharedmemmemorysupplier",
 					"targetIndexes" : 
 					[
-						21,
-						22,
-						23
+						24,
+						25,
+						26
 					]
 				},
 				{
@@ -193,6 +194,23 @@
 						1,
 						2
 					]
+				},
+				{
+					"build" : "datareceiver",
+					"jsonFile" : "directory-datareceiver-Debug-98a3f2628589085b8b0c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 11,
+					"source" : "datareceiver",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
 				}
 			],
 			"name" : "Debug",
@@ -209,7 +227,8 @@
 						7,
 						8,
 						9,
-						10
+						10,
+						11
 					],
 					"directoryIndexes" : 
 					[
@@ -218,7 +237,7 @@
 					"name" : "infoexchangerproject",
 					"targetIndexes" : 
 					[
-						10
+						13
 					]
 				},
 				{
@@ -242,7 +261,7 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						6
+						9
 					]
 				},
 				{
@@ -254,7 +273,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						17
+						20
 					]
 				},
 				{
@@ -266,9 +285,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						14,
-						15,
-						16
+						17,
+						18,
+						19
 					]
 				},
 				{
@@ -280,9 +299,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						18,
-						19,
-						20
+						21,
+						22,
+						23
 					]
 				},
 				{
@@ -294,9 +313,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						3,
-						4,
-						5
+						6,
+						7,
+						8
 					]
 				},
 				{
@@ -308,9 +327,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						7,
-						8,
-						9
+						10,
+						11,
+						12
 					]
 				},
 				{
@@ -322,9 +341,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						11,
-						12,
-						13
+						14,
+						15,
+						16
 					]
 				},
 				{
@@ -336,9 +355,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						21,
-						22,
-						23
+						24,
+						25,
+						26
 					]
 				},
 				{
@@ -353,6 +372,20 @@
 						0,
 						1,
 						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						11
+					],
+					"name" : "datareceiver",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
 					]
 				}
 			],
@@ -378,6 +411,27 @@
 					"jsonFile" : "target-buffermanager_tconf-Debug-caa29d12ffea39ee60ef.json",
 					"name" : "buffermanager_tconf",
 					"projectIndex" : 10
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "datareceiver::@6b2197385110ab01bfad",
+					"jsonFile" : "target-datareceiver-Debug-f54f9481cea19f0ab124.json",
+					"name" : "datareceiver",
+					"projectIndex" : 11
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "datareceiver_t::@6b2197385110ab01bfad",
+					"jsonFile" : "target-datareceiver_t-Debug-0a4ef16cb4798ba3404b.json",
+					"name" : "datareceiver_t",
+					"projectIndex" : 11
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "datareceiver_tconf::@6b2197385110ab01bfad",
+					"jsonFile" : "target-datareceiver_tconf-Debug-5a2034287fada23238c1.json",
+					"name" : "datareceiver_tconf",
+					"projectIndex" : 11
 				},
 				{
 					"directoryIndex" : 6,
@@ -431,7 +485,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "infoexchangerproject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-infoexchangerproject-Debug-acdbfe3c53b3b0a72003.json",
+					"jsonFile" : "target-infoexchangerproject-Debug-104f787135e178224a23.json",
 					"name" : "infoexchangerproject",
 					"projectIndex" : 0
 				},

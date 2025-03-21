@@ -49,7 +49,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC sharedmemmemorysupplier)
 add_subdirectory(${PROJECT_SOURCE_DIR}/buffermanager)
 target_link_libraries(${PROJECT_NAME} PUBLIC buffermanager)
 
-
+add_subdirectory(${PROJECT_SOURCE_DIR}/datareceiver)
+target_link_libraries(${PROJECT_NAME} PUBLIC datareceiver)
 
 
 

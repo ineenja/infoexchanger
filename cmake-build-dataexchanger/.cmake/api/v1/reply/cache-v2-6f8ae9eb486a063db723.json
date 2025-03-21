@@ -763,7 +763,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "11"
+			"value" : "12"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1200,6 +1200,54 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/andreytas/work/development/projects/infoexchanger/buffermanager"
+		},
+		{
+			"name" : "datareceiver_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver"
+		},
+		{
+			"name" : "datareceiver_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "datareceiver_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;msg;general;mylist;general;buffermanager;"
+		},
+		{
+			"name" : "datareceiver_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/andreytas/work/development/projects/infoexchanger/datareceiver"
 		},
 		{
 			"name" : "datasource_BINARY_DIR",

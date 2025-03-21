@@ -55,3 +55,9 @@
 /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager/CMakeFiles/test.dir
 /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager/CMakeFiles/edit_cache.dir
 /home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager/CMakeFiles/rebuild_cache.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/CMakeFiles/datareceiver.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/CMakeFiles/datareceiver_t.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/CMakeFiles/datareceiver_tconf.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/CMakeFiles/test.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/CMakeFiles/edit_cache.dir
+/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/CMakeFiles/rebuild_cache.dir

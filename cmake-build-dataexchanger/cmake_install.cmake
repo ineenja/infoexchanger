@@ -53,6 +53,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/memmapmemorysupplier/cmake_install.cmake")
   include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/memorysupplier/sharedmemmemorysupplier/cmake_install.cmake")
   include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/buffermanager/cmake_install.cmake")
+  include("/home/andreytas/work/development/projects/infoexchanger/cmake-build-dataexchanger/datareceiver/cmake_install.cmake")
 
 endif()
 

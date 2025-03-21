@@ -134,6 +134,10 @@ class MessageTransfererToSharedMemory {
                 std::cout << "msg pulled to pos " << currentPosition << std::endl;
 
                 currentPosition = (uint8_t)ceil((double)tempMessageSequenced.size() / (double)pocketSize) + currentPosition;
+
+                if (pocketSize * currentPosition + tempMessageSequenced.size() > sharedMemoPtr->getSize()) { // перескакиваем на начало памяти если достигли конца и места нет
+                    currentPosition = 0;
+                }
             } else {
                 std::cout << "queue is empty rn" << std::endl;
                 return false;
