@@ -1,28 +1,63 @@
 #include "common/msg/include/msg/msg.h"
 #include "common/mylist/include/mylist/mylist.h"
 
+#include "buffermanager/buffermanager.h"
+#include "datareceiver/datareceiver.h"
+#include "datasource/datasource.h"
+
 
 int main()
 {
-    std::vector<double> testData1 = {1,2,3,4,5,6,7,8,9};
-    Message testMsg1(testData1, 1);
-    auto dick = getDataFromBytes(testMsg1.getPayload(), testMsg1.getMessageType());
-    std::vector<double> check = std::any_cast<std::vector<double>>(dick);
+    std::string testData = "dollbyopp";
 
+    MyList<Message> MessagesQueue;
 
-    double testpenis = 123;
-    Message testMsg2(testpenis, 2);
-    auto cock = getDataFromBytes(testMsg2.getPayload(), testMsg2.getMessageType());
+    const std::string shmName = "MySharedMemory";
+    const size_t shmSize = 1024;
+    const size_t pocketSize = 10; // количество байт информации, содержащейся в одном сообщении
 
-    int testdick = 2;
-    Message testMsg3(testdick, 3);
-    auto penis = getDataFromBytes(testMsg3.getPayload(), testMsg3.getMessageType());
+    SharedMemMemorySupplier sharedMemo(shmName, shmSize);
+    SharedMemMemorySupplier* sharedMemoPtr = &sharedMemo;
 
-    std::string testcunt = "coochie";
-    Message testMsg4(testcunt, 4);
-    auto cunt = getDataFromBytes(testMsg4.getPayload(), testMsg4.getMessageType());
+    // Создаем менеджер буферов
+    BufferManager bufferManager(sharedMemoPtr, pocketSize);
 
+    // засунули все сообщения в очередь
+    Message msg(testData);
+    MessagesQueue.pushBack(msg);
 
+    // передаем сообщения в память
+    size_t currentPosition = 0;
+    std::vector<uint8_t> tempMessageSequenced = divideMessageIntoBytes(MessagesQueue.front());
+    MessagesQueue.popFront(); // удаляем его из очереди
+    bufferManager.writePocket(tempMessageSequenced, currentPosition);
+    currentPosition = (uint8_t)ceil((double)tempMessageSequenced.size() / (double)pocketSize) + currentPosition;
+
+    std::vector<Message> ReceiverMessagesQueue;
+
+    DataReceiver dataReceiver = DataReceiver(sharedMemoPtr, std::chrono::milliseconds(500), &ReceiverMessagesQueue, pocketSize);
+
+    dataReceiver.tryPullMsg();
+    std::chrono::milliseconds duration(4000);
+
+    auto StartTime = std::chrono::steady_clock::now();
+    while (true) {
+        auto CurrentTime = std::chrono::steady_clock::now();
+        if (CurrentTime - StartTime >= duration) {
+            break;
+        }
+        bool msgWasPulled = dataReceiver.tryPullMsg();;
+        if (msgWasPulled == true){
+            std::cout << "msg was pulled" << std::endl;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    std::cout << "pulling finished" << std::endl;
+
+    auto checkData = any_cast<std::string>(getDataFromBytes(ReceiverMessagesQueue[0].getPayload(), ReceiverMessagesQueue[0].getMessageType()));
+
+    std::cout << "the message is: " << checkData << std::endl;
 
     return 0;
 }
